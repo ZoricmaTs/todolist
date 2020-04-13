@@ -13,8 +13,22 @@
     >
       <span class="task-heading">{{ task.name }}</span>
       <div>
-        <button class="btn btn-edit material-icons">create</button>
-        <button class="btn btn-remove material-icons">close</button>
+        <button
+          class="btn btn-edit material-icons"
+          :class="{
+            uncompleted: task.status == 1
+          }"
+        >
+          create
+        </button>
+        <button
+          class="btn btn-remove material-icons"
+          :class="{
+            uncompleted: task.status == 1
+          }"
+        >
+          close
+        </button>
       </div>
     </div>
   </router-link>
@@ -26,7 +40,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
 .completed {
   background-color: #6ae356;
   border: 1px solid #4e9243;
@@ -35,6 +49,9 @@ export default {
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid #4e9243;
 }
+/*.material-icons + .uncompleted {
+  color: white;
+}*/
 .empty {
   background-color: white;
   border: 1px solid #4e9243;
@@ -51,7 +68,6 @@ export default {
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
-  line-height: 28px;
 }
 .task-card {
   display: flex;
@@ -59,10 +75,13 @@ export default {
   justify-content: space-between;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 25px;
+  padding: 10px 25px;
   transition: all 0.2s linear;
   cursor: pointer;
   width: 560px;
+}
+.task-card:last-child {
+  border-radius: 0px 0px 10px 10px;
 }
 .task-card:hover {
   transform: scale(1.01);
