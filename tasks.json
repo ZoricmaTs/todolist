@@ -1,0 +1,36 @@
+{
+  "tasks": [
+    {
+      "ID": 1,
+      "TaskName": "Сходить в магазин",
+      "CreatedDate": "03.11.2020 10:25",
+      "EditDate": "04.11.2020 10:25",
+      "Status": 0,
+      "StatusName": "нет подзадач"
+    },
+    {
+      "ID": 2,
+      "TaskName": "Сходить в театр",
+      "CreatedDate": "03.11.2020 10:25",
+      "EditDate": "04.11.2020 10:25",
+      "Status": 1,
+      "StatusName": "выполненная"
+    },
+    {
+      "ID": 3,
+      "TaskName": "Найти видеорегистраторв в машину",
+      "CreatedDate": "03.11.2020 10:25",
+      "EditDate": "04.11.2020 10:25",
+      "Status": 2,
+      "StatusName": "невыполненная"
+    },
+    {
+      "ID": 4,
+      "TaskName": "Отпуск",
+      "CreatedDate": "03.11.2020 10:25",
+      "EditDate": "04.11.2020 10:25",
+      "Status": 2,
+      "StatusName": "невыполненная"
+    }
+  ]
+}
