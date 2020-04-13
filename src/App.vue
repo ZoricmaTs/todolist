@@ -8,12 +8,15 @@
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 body {
+  background-color: skyblue;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -50,8 +53,6 @@ h6 {
   font-family: 'Montserrat', sans-serif;
 }
 h1 {
-  font-size: 50px;
-  font-weight: 700;
 }
 h2 {
   font-size: 38px;
