@@ -3,12 +3,12 @@
     <div class="task-header">
       <h1 class="task-heading__green">Удаление задачи</h1>
     </div>
-    <h2 class="task-heading__alarm">Вы точно хотите удалить “Задача 3”?</h2>
+    <h2 class="task-heading__alarm">Вы точно хотите удалить “Задача {{ task.name }}”?</h2>
     <span class="task-heading__alarm-text">Внимание!</span>
     <span class="task-heading__alarm-text">Все подзадачи данного списка будут удалены.</span>
     <div class="buttons-container">
       <button type="button" class="btn btn-grey">Отмена</button>
-      <button type="button" class="btn btn-green">Удалить</button>
+      <button type="button" class="btn btn-green" @click="deleteTask">Удалить</button>
     </div>
   </div>
 </template>
@@ -20,6 +20,19 @@ export default {
   data() {
     return {
       task: {}
+    }
+  },
+  methods: {
+    deleteTask() {
+      // alert(this.task)
+
+      TaskService.deleteTask(this.task)
+        .then(response => {
+          console.log(response.data) // For now, logs out the response
+        })
+        .catch(error => {
+          console.log('There was an error:', error.response) // Logs out the error
+        })
     }
   },
   created() {
