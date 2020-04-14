@@ -53,28 +53,7 @@ h6 {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
 }
-h1 {
-}
-h2 {
-  font-size: 38px;
-  font-weight: 700;
-}
-h3 {
-  font-size: 28px;
-  font-weight: 700;
-}
-h4 {
-  font-size: 21px;
-  font-weight: 700;
-}
-h5 {
-  font-size: 16px;
-  font-weight: 700;
-}
-h6 {
-  font-size: 15px;
-  font-weight: 700;
-}
+
 b,
 small {
   font-size: 80%;

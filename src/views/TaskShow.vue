@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div class="task-header">
-      <h1 class="title">{{ task.name }}</h1>
+    <h1 class="tasklist-heading">Просмотр задачи</h1>
+    <div>
+      <h2 class="title">{{ task.name }}</h2>
     </div>
   </div>
 </template>

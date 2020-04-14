@@ -34,6 +34,9 @@ export default {
   justify-content: center;
   background-color: #ffffff;
   padding: 10px 25px 20px 25px;
+  background: #ffffff;
+  box-shadow: 0px 10px 11px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
 }
 .task-heading__green {
   align-items: center;
