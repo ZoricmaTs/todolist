@@ -1,34 +1,30 @@
 <template>
   <router-link
-    class="task-link"
+    class="task-link task-card"
+    :class="{
+      empty: task.status == 0,
+      completed: task.status == 2,
+      uncompleted: task.status == 1
+    }"
     :to="{ name: 'task-show', params: { id: task.id } }"
   >
-    <div
-      class="task-card -shadow"
-      :class="{
-        empty: task.status == 0,
-        completed: task.status == 2,
-        uncompleted: task.status == 1
-      }"
-    >
+    <div class="task-container">
       <span class="task-heading">{{ task.name }}</span>
-      <div>
+      <div class="task-btn-container">
         <button
+          type="button"
           class="btn btn-edit material-icons"
           :class="{
             uncompleted: task.status == 1
           }"
-        >
-          create
-        </button>
+        >create</button>
         <button
+          type="button"
           class="btn btn-remove material-icons"
           :class="{
             uncompleted: task.status == 1
           }"
-        >
-          close
-        </button>
+        >close</button>
       </div>
     </div>
   </router-link>
@@ -59,6 +55,7 @@ export default {
 .btn {
   border: none;
   background-color: transparent;
+  outline: none;
 }
 .material-icons {
   color: #4e9243;
@@ -70,21 +67,17 @@ export default {
   font-size: 24px;
 }
 .task-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: block;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px 25px;
+  padding: 10px 5px 10px 25px;
   transition: all 0.2s linear;
   cursor: pointer;
-  width: 560px;
 }
-.task-card:last-child {
-  border-radius: 0px 0px 10px 10px;
-}
+
 .task-card:hover {
   transform: scale(1.01);
+
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
 }
 .task-card > .title {
@@ -93,6 +86,12 @@ export default {
 .task-link {
   color: black;
   text-decoration: none;
-  font-weight: 100;
+}
+.task-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.task-btn-container {
 }
 </style>

@@ -24,7 +24,7 @@ body {
 }
 #app {
   box-sizing: border-box;
-  width: 500px;
+  width: 600px;
   padding: 0 20px 20px;
   margin: 0 auto;
 }
@@ -51,6 +51,7 @@ h6 {
   display: flex;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
 }
 h1 {
 }
@@ -75,9 +76,6 @@ h6 {
   font-weight: 700;
 }
 b,
-strong {
-  font-weight: bolder;
-}
 small {
   font-size: 80%;
 }
@@ -92,48 +90,6 @@ small {
 }
 .-text-error {
   color: tomato;
-}
-.-text-gray {
-  color: rgba(0, 0, 0, 0.5);
-}
-.-shadow {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
-}
-.badge {
-  display: inline-flex;
-  height: 26px;
-  width: auto;
-  padding: 0 7px;
-  margin: 0 5px;
-  background: transparent;
-  border-radius: 13px;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 26px;
-}
-.badge.-fill-gradient {
-  background: linear-gradient(to right, #16c0b0, #84cf6a);
-  color: #fff;
-}
-button,
-label,
-input,
-optgroup,
-select,
-textarea {
-  display: inline-flex;
-  font-family: 'Open sans', sans-serif;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-button,
-input {
-  overflow: visible;
-}
-button,
-select {
-  text-transform: none;
 }
 button,
 [type='button'],
@@ -154,6 +110,30 @@ button:-moz-focusring,
 [type='submit']:-moz-focusring {
   outline: 2px solid #39b982;
 }
+/*
+.badge {
+  display: inline-flex;
+  height: 26px;
+  width: auto;
+  padding: 0 7px;
+  margin: 0 5px;
+  background: transparent;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 26px;
+}
+.badge.-fill-gradient {
+  background: linear-gradient(to right, #16c0b0, #84cf6a);
+  color: #fff;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+
 label {
   color: rgba(0, 0, 0, 0.5);
   font-weight: 700;
@@ -205,8 +185,8 @@ textarea {
 }
 [hidden] {
   display: none;
-}
-select {
+}/
+/*select {
   width: 100%;
   height: 52px;
   padding: 0 24px 0 10px;
@@ -231,5 +211,5 @@ select:focus::ms-value {
 }
 select::ms-expand {
   opacity: 0;
-}
+}*/
 </style>

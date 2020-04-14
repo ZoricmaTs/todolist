@@ -1,24 +1,33 @@
 <template>
-  <div>
+  <div class="tasklist-container">
     <h1 class="tasklist-heading">Список задач</h1>
     <div class="container">
-      <button class="btn btn-add-circle material-icons md-36">
-        add_circle
-      </button>
-      <select v-model="selectedCategory" class="filter"
-        ><i class="filter-btn material-icons">arrow_drop_down</i>
+      <router-link class :to="{ name: 'task-create' }">
+        <button type="button" class="btn btn-add-circle material-icons md-36">
+          add_circle
+        </button>
+      </router-link>
+
+      <select v-model="selectedCategory" class="filter">
+        <i class="filter-btn material-icons">arrow_drop_down</i>
         <option v-for="task in tasks" :key="task.status" :task="task">{{
           task.status
         }}</option>
       </select>
     </div>
 
-    <TaskCard v-for="task in tasks" :key="task.id" :task="task"></TaskCard>
+    <TaskCard
+      class="task"
+      v-for="task in tasks"
+      :key="task.id"
+      :task="task"
+    ></TaskCard>
   </div>
 </template>
 
 <script>
 import TaskCard from '@/components/TaskCard.vue'
+
 import TaskService from '@/services/TaskService.js'
 
 export default {
@@ -42,15 +51,31 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+body {
+  background: url(../assets/tasklistbackground.jpg) no-repeat;
+  background-size: 100% auto;
+}
 .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-bottom: 50px;
+  vertical-align: top;
+}
+
+.task-link:last-child {
+  display: block;
+  border-radius: 0px 0px 10px 10px;
+}
+.task-link:first-of-type {
+  display: block;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .btn-add-circle {
   width: 81px;
   height: 40px;
-
   background: #ffffff;
   /* Зеленый */
   cursor: pointer;
@@ -61,6 +86,8 @@ export default {
 }
 
 .filter {
+  display: inline;
+  vertical-align: top;
   font-style: normal;
   font-weight: normal;
   margin-top: 0;
@@ -73,6 +100,7 @@ export default {
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
+  outline: none;
 }
 
 /*
@@ -89,10 +117,8 @@ export default {
   font-size: 64px;
   line-height: 94px;
   text-align: center;
-
   letter-spacing: 0.1em;
   border-bottom: 3px solid #ffffff;
-  width: 560px;
   color: #ffffff;
 }
 </style>
