@@ -2,7 +2,13 @@
   <div>
     <h1 class="tasklist-heading">Просмотр задачи</h1>
     <div class="task-create">
-      <h2 class="title task-heading__green">{{ task.name }}</h2>
+      <h2 class="title task-heading__green addsubtask-block">
+        {{ task.name }}
+        <button
+          type="button"
+          class="btn material-icons md-36 btn-addsubtask"
+        >add_circle</button>
+      </h2>
       <div
         class="subtask-container"
         v-for="subtask in subtasks"
@@ -17,7 +23,9 @@
           </div>
         </label>
         <div class="task-btn-container">
-          <button type="button" class="btn btn-edit material-icons">create</button>
+          <router-link :to="{ name: 'subtask-edit', params: { id: subtask.id } }">
+            <button type="button" class="btn btn-edit material-icons">create</button>
+          </router-link>
           <button type="button" class="btn btn-remove material-icons">close</button>
         </div>
       </div>
@@ -55,6 +63,14 @@ export default {
 </script>
 
 <style lang="scss">
+.addsubtask-block {
+  display: flex;
+
+  justify-content: space-between;
+}
+.btn-addsubtask {
+  cursor: pointer;
+}
 .subtask-container {
   display: flex;
   flex-direction: row;

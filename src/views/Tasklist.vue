@@ -6,13 +6,9 @@
         <button type="button" class="btn btn-add-circle material-icons md-36">add_circle</button>
       </router-link>
 
-      <select v-model="selectedCategory" class="filter">
+      <select class="filter">
         <i class="filter-btn material-icons">arrow_drop_down</i>
-        <option v-for="task in tasks" :key="task.status" :task="task">
-          {{
-          task.status
-          }}
-        </option>
+        <option v-for="task in tasks" :key="task.status" :task="task">{{ task.status }}</option>
       </select>
     </div>
 

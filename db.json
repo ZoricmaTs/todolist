@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": 1,
-      "name": "Сходить в магазин!!!",
+      "name": "Сходить в магазин",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "status": 0,
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "name": "Сходить в театр1qwqwq",
+      "name": "Сходить в театр",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "status": 1,
@@ -45,16 +45,8 @@
       "edit_date": "04.11.2020 10:25",
       "status": 0,
       "statusname": "нет подзадач",
-      "name": "dfghjklkjhgvcxvbnm",
-      "id": 8
-    },
-    {
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": 0,
-      "statusname": "нет подзадач",
-      "name": "dfghjklkjhgvcxvbnm",
-      "id": 9
+      "name": "чсмитьбтимсчя",
+      "id": 10
     }
   ],
   "subtasks": [
