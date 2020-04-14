@@ -1,8 +1,21 @@
 <template>
   <div>
     <h1 class="tasklist-heading">Просмотр задачи</h1>
-    <div>
-      <h2 class="title">{{ task.name }}</h2>
+    <div class="task-create">
+      <h2 class="title task-heading__green">{{ task.name }}</h2>
+      <div class="subtask-container">
+        <label class="check option-check">
+          <input class="check__input" type="checkbox" />
+          <span class="check__box"></span>
+          <div class="check__text-block">
+            <span class="check__text">купить цветы</span>
+          </div>
+        </label>
+        <div class="task-btn-container">
+          <button type="button" class="btn btn-edit material-icons">create</button>
+          <button type="button" class="btn btn-remove material-icons">close</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -27,23 +40,64 @@ export default {
 }
 </script>
 
-<style scoped>
-.location {
-  margin-bottom: 0;
+<style lang="scss">
+.subtask-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
-.location > .icon {
-  margin-left: 10px;
+.option-check {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 13px;
 }
-.task-header > .title {
-  margin: 0;
-}
-.list-group {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.list-group > .list-item {
-  padding: 1em 0;
-  border-bottom: solid 1px #e5e5e5;
+.check {
+  padding-left: 20px;
+  &__input {
+    position: absolute;
+    width: 1px; /*firefox*/
+    height: 1px; /*firefox*/
+    overflow: hidden; /*firefox*/
+    clip: rect(0 0 0 0); /*firefox*/
+  }
+
+  &__box {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: -20px;
+    /* Primary Color */
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 1px solid #4e9243;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+  &__box-point {
+    position: absolute;
+    margin-top: 0px;
+    margin-left: -20px;
+    width: 10.43px;
+    height: 10px;
+    border-radius: 10px;
+
+    background: rgba(31, 32, 65, 0.25);
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  &__input:checked + &__box {
+    fill: white;
+    background: url('../assets/checked.svg') center no-repeat;
+  }
 }
 </style>

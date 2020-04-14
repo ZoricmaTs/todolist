@@ -3,25 +3,16 @@
     <h1 class="tasklist-heading">Список задач</h1>
     <div class="container">
       <router-link class :to="{ name: 'task-create' }">
-        <button type="button" class="btn btn-add-circle material-icons md-36">
-          add_circle
-        </button>
+        <button type="button" class="btn btn-add-circle material-icons md-36">add_circle</button>
       </router-link>
 
       <select v-model="selectedCategory" class="filter">
         <i class="filter-btn material-icons">arrow_drop_down</i>
-        <option v-for="task in tasks" :key="task.status" :task="task">{{
-          task.status
-        }}</option>
+        <option v-for="task in tasks" :key="task.status" :task="task">{{ task.status }}</option>
       </select>
     </div>
 
-    <TaskCard
-      class="task"
-      v-for="task in tasks"
-      :key="task.id"
-      :task="task"
-    ></TaskCard>
+    <TaskCard class="task" v-for="task in tasks" :key="task.id" :task="task"></TaskCard>
   </div>
 </template>
 
@@ -62,15 +53,6 @@ body {
   justify-content: space-between;
   margin-bottom: 50px;
   vertical-align: top;
-}
-
-.task-link:last-child {
-  display: block;
-  border-radius: 0px 0px 10px 10px;
-}
-.task-link:first-of-type {
-  display: block;
-  border-radius: 10px 10px 0px 0px;
 }
 
 .btn-add-circle {
@@ -119,6 +101,7 @@ body {
   text-align: center;
   letter-spacing: 0.1em;
   border-bottom: 3px solid #ffffff;
+  margin-bottom: 40px;
   color: #ffffff;
 }
 </style>

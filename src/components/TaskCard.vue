@@ -1,33 +1,22 @@
 <template>
-  <router-link
-    class="task-link task-card"
+  <div
+    class="task-container task-card"
     :class="{
       empty: task.status == 0,
       completed: task.status == 2,
       uncompleted: task.status == 1
     }"
-    :to="{ name: 'task-show', params: { id: task.id } }"
   >
-    <div class="task-container">
+    <router-link class="task-link" :to="{ name: 'task-show', params: { id: task.id } }">
       <span class="task-heading">{{ task.name }}</span>
-      <div class="task-btn-container">
-        <button
-          type="button"
-          class="btn btn-edit material-icons"
-          :class="{
-            uncompleted: task.status == 1
-          }"
-        >create</button>
-        <button
-          type="button"
-          class="btn btn-remove material-icons"
-          :class="{
-            uncompleted: task.status == 1
-          }"
-        >close</button>
-      </div>
+    </router-link>
+    <div class="task-btn-container">
+      <router-link :to="{ name: 'task-edit', params: { id: task.id } }">
+        <button type="button" class="btn btn-edit material-icons">create</button>
+      </router-link>
+      <button type="button" class="btn btn-remove material-icons">close</button>
     </div>
-  </router-link>
+  </div>
 </template>
 <script>
 export default {
@@ -57,6 +46,22 @@ export default {
   background-color: transparent;
   outline: none;
 }
+.btn-edit,
+.btn-remove {
+  height: 30px;
+  border: 1px solid #4e9243;
+  border-radius: 3px;
+  cursor: pointer;
+  &:hover {
+  }
+}
+.btn-edit:hover,
+.btn-remove:hover {
+}
+
+.btn-edit {
+  margin-right: 10px;
+}
 .material-icons {
   color: #4e9243;
 }
@@ -70,7 +75,7 @@ export default {
   display: block;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px 5px 10px 25px;
+  padding: 10px 10px 10px 25px;
   transition: all 0.2s linear;
   cursor: pointer;
 }
@@ -91,7 +96,15 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+}
+.task-container:first-of-type {
+  border-radius: 10px 10px 0px 0px;
+}
+.task-container:last-child {
+  border-radius: 0px 0px 10px 10px;
 }
 .task-btn-container {
+  display: block;
 }
 </style>
