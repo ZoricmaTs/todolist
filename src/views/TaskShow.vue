@@ -3,12 +3,17 @@
     <h1 class="tasklist-heading">Просмотр задачи</h1>
     <div class="task-create">
       <h2 class="title task-heading__green">{{ task.name }}</h2>
-      <div class="subtask-container">
+      <div
+        class="subtask-container"
+        v-for="subtask in subtasks"
+        :key="subtask.id"
+        :subtask="subtask"
+      >
         <label class="check option-check">
           <input class="check__input" type="checkbox" />
           <span class="check__box"></span>
           <div class="check__text-block">
-            <span class="check__text">купить цветы</span>
+            <span class="check__text">{{ subtask.name }}</span>
           </div>
         </label>
         <div class="task-btn-container">
@@ -25,13 +30,22 @@ export default {
   props: ['id'],
   data() {
     return {
-      task: {}
+      task: {},
+      subtasks: []
     }
   },
   created() {
     TaskService.getTask(this.id)
       .then(response => {
         this.task = response.data
+      })
+      .catch(errors => {
+        console.log('ERROR: ' + errors.response)
+      })
+
+    TaskService.getSubTasks(this.id)
+      .then(response => {
+        this.subtasks = response.data
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)

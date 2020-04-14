@@ -5,6 +5,7 @@ import TaskShow from '@/views/TaskShow.vue'
 import TaskCreate from '@/views/TaskCreate.vue'
 import TaskEdit from '@/views/TaskEdit.vue'
 import TaskRemove from '@/views/TaskRemove.vue'
+import SubTaskEdit from '@/views/SubTaskEdit.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -39,6 +40,12 @@ const routes = [
     path: '/tasks/remove/:id',
     name: 'task-remove',
     component: TaskRemove,
+    props: true
+  },
+  {
+    path: '/tasks/subtasks',
+    name: 'subtask-edit',
+    component: SubTaskEdit,
     props: true
   }
 ]

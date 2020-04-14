@@ -1,0 +1,71 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Сходить в магазин",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "subtasks": []
+    },
+    {
+      "id": 2,
+      "name": "Сходить в театр",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 1,
+      "statusname": "выполненная",
+      "subtasks": [
+        {
+          "id": 1,
+          "task_id": 2,
+          "name": "Почитать отзывы",
+          "description": "Поиск информации в интернете, или у знакомых",
+          "importance": 5,
+          "status": true,
+          "created_date": "03.11.2020 10:25",
+          "edit_date": "04.11.2020 10:25"
+        },
+        {
+          "id": 2,
+          "task_id": 2,
+          "name": "Найти магазин, где продается видеорегистратор",
+          "description": "",
+          "importance": 5,
+          "status": false,
+          "created_date": "03.11.2020 10:25",
+          "edit_date": "04.11.2020 10:25"
+        },
+        {
+          "id": 3,
+          "task_id": 2,
+          "name": "Купить видеорегистратор",
+          "description": "",
+          "importance": 1,
+          "status": false,
+          "created_date": "03.11.2020 10:25",
+          "edit_date": "04.11.2020 10:25"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Найти видеорегистратор в машину",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 2,
+      "statusname": "невыполненная",
+      "subtasks": []
+    },
+    {
+      "id": 4,
+      "name": "Отпуск",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 2,
+      "statusname": "невыполненная",
+      "subtasks": []
+    }
+  ]
+}

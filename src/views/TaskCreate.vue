@@ -9,11 +9,13 @@
       type="text"
       name="name"
       placeholder="введите наименование задачи"
+      v-model="task.name"
       required
     />
+    <input type="hidden" v-model="task.status" />
     <div class="buttons-container">
       <button type="button" class="btn btn-grey">Отмена</button>
-      <button type="button" class="btn btn-green">Готово</button>
+      <button type="button" class="btn btn-green" @click="addTask">Готово</button>
     </div>
   </div>
 </template>
@@ -21,7 +23,27 @@
 import TaskService from '@/services/TaskService.js'
 export default {
   data() {
-    return {}
+    return {
+      task: {
+        created_date: '03.11.2020 10:25',
+        edit_date: '04.11.2020 10:25',
+        status: 0,
+        statusname: 'нет подзадач'
+      }
+    }
+  },
+  methods: {
+    addTask() {
+      // alert(this.task)
+
+      TaskService.addTask(this.task)
+        .then(response => {
+          console.log(response.data) // For now, logs out the response
+        })
+        .catch(error => {
+          console.log('There was an error:', error.response) // Logs out the error
+        })
+    }
   },
   created() {}
 }

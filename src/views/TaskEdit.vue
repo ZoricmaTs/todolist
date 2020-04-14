@@ -9,18 +9,17 @@
       type="text"
       name="name"
       placeholder="введите наименование задачи"
-      v-model="task.id"
+      v-model="task.name"
       required
     />
     <div class="buttons-container">
       <button type="button" class="btn btn-grey">Отмена</button>
-      <button type="button" class="btn btn-green">Готово</button>
+      <button type="button" class="btn btn-green" @click="updateTask">Готово</button>
     </div>
   </div>
 </template>
 <script>
 import TaskService from '@/services/TaskService.js'
-import axios from 'axios'
 export default {
   props: ['id'],
   data() {
@@ -28,14 +27,26 @@ export default {
       task: {}
     }
   },
+  methods: {
+    updateTask() {
+      // alert(this.task)
+
+      TaskService.updateTask(this.task)
+        .then(response => {
+          console.log(response.data) // For now, logs out the response
+        })
+        .catch(error => {
+          console.log('There was an error:', error.response) // Logs out the error
+        })
+    }
+  },
   created() {
-    axios
-      .put('http://localhost:3000/tasks/id', {}) // Does a get request
+    TaskService.getTask(this.id)
       .then(response => {
-        console.log(response.data) // For now, logs out the response
+        this.task = response.data
       })
-      .catch(error => {
-        console.log('There was an error:', error.response) // Logs out the error
+      .catch(errors => {
+        console.log('ERROR: ' + errors.response)
       })
   }
 }

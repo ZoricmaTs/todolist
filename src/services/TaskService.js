@@ -15,5 +15,14 @@ export default {
   },
   getTask(id) {
     return apiClient.get('/tasks/' + id)
+  },
+  updateTask(task) {
+    return apiClient.put('/tasks/' + task.id, task)
+  },
+  addTask(task) {
+    return apiClient.post('/tasks/', task)
+  },
+  getSubTasks(task_id) {
+    return apiClient.get('/subtasks/?task_id=' + task_id)
   }
 }

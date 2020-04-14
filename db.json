@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "name": "Сходить в театр",
+      "name": "Сходить в театр1qwqwq",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "status": 1,
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "name": "Найти видеорегистраторв в машину",
+      "name": "Найти видеорегистратор в машину",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "status": 2,
@@ -31,6 +31,58 @@
       "edit_date": "04.11.2020 10:25",
       "status": 2,
       "statusname": "невыполненная"
+    },
+    {
+      "name": "dddd",
+      "id": 5
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "ddd",
+      "id": 6
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "ffdfd",
+      "id": 7
+    }
+  ],
+  "subtasks": [
+    {
+      "id": 1,
+      "task_id": 2,
+      "name": "Почитать отзывы",
+      "description": "Поиск информации в интернете, или у знакомых",
+      "importance": 5,
+      "status": true,
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25"
+    },
+    {
+      "id": 2,
+      "task_id": 3,
+      "name": "Найти магазин, где продается видеорегистратор",
+      "description": "",
+      "importance": 5,
+      "status": false,
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25"
+    },
+    {
+      "id": 3,
+      "task_id": 3,
+      "name": "Купить видеорегистратор",
+      "description": "",
+      "importance": 1,
+      "status": false,
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25"
     }
   ]
 }
