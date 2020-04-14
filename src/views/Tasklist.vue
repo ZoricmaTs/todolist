@@ -8,7 +8,11 @@
 
       <select v-model="selectedCategory" class="filter">
         <i class="filter-btn material-icons">arrow_drop_down</i>
-        <option v-for="task in tasks" :key="task.status" :task="task">{{ task.status }}</option>
+        <option v-for="task in tasks" :key="task.status" :task="task">
+          {{
+          task.status
+          }}
+        </option>
       </select>
     </div>
 
@@ -18,7 +22,6 @@
 
 <script>
 import TaskCard from '@/components/TaskCard.vue'
-
 import TaskService from '@/services/TaskService.js'
 
 export default {

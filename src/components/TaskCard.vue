@@ -14,7 +14,9 @@
       <router-link :to="{ name: 'task-edit', params: { id: task.id } }">
         <button type="button" class="btn btn-edit material-icons">create</button>
       </router-link>
-      <button type="button" class="btn btn-remove material-icons">close</button>
+      <router-link :to="{ name: 'task-remove', params: { id: task.id } }">
+        <button type="button" class="btn btn-remove material-icons">close</button>
+      </router-link>
     </div>
   </div>
 </template>

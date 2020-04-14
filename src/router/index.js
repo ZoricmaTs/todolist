@@ -4,6 +4,7 @@ import Tasklist from '@/views/Tasklist.vue'
 import TaskShow from '@/views/TaskShow.vue'
 import TaskCreate from '@/views/TaskCreate.vue'
 import TaskEdit from '@/views/TaskEdit.vue'
+import TaskRemove from '@/views/TaskRemove.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -32,6 +33,12 @@ const routes = [
     path: '/tasks/edit/:id',
     name: 'task-edit',
     component: TaskEdit,
+    props: true
+  },
+  {
+    path: '/tasks/remove/:id',
+    name: 'task-remove',
+    component: TaskRemove,
     props: true
   }
 ]

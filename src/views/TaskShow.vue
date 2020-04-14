@@ -98,6 +98,7 @@ export default {
   &__input:checked + &__box {
     fill: white;
     background: url('../assets/checked.svg') center no-repeat;
+    text-decoration: line-through;
   }
 }
 </style>
