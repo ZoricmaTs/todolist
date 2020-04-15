@@ -25,6 +25,9 @@ export default {
   addTask(task) {
     return apiClient.post('/tasks/', task)
   },
+  addSubTask(subtask) {
+    return apiClient.post('/subtasks/', subtask)
+  },
   deleteTask(task) {
     return apiClient.delete('/tasks/' + task.id, task)
   },

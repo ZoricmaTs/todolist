@@ -50,7 +50,7 @@ const routes = [
     props: true
   },
   {
-    path: '/subtasks/create',
+    path: '/subtasks/create/:task_id',
     name: 'subtask-create',
     component: SubTaskCreate,
     props: true

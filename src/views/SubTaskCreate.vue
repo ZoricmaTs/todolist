@@ -12,11 +12,9 @@
       v-model="subtask.name"
       required
     />
-    <input type="hidden" v-model="subtask.status" />
     <div class="buttons-container">
-      <router-link :to="{ name: 'task-show', params: { id: subtask.task_id } }">
+      <router-link :to="{ name: 'task-show', params: { id: task_id } }">
         <button type="button" class="btn btn-grey">Отмена</button>
-
         <button type="button" class="btn btn-green" @click="addSubTask">Готово</button>
       </router-link>
     </div>
@@ -25,48 +23,33 @@
 <script>
 import TaskService from '@/services/TaskService.js'
 export default {
-  props: ['id'],
+  props: ['task_id'],
 
   data() {
     return {
-      subtask: {},
-      task_name: '',
-      task: {
+      subtask: {
+        task_id: this.task_id,
+        name: '',
         created_date: '03.11.2020 10:25',
         edit_date: '04.11.2020 10:25',
-        status: 0,
-        statusname: 'нет подзадач'
-      }
+        status: false,
+        importance: false
+      },
+      task_name: ''
     }
   },
   methods: {
     addSubTask() {
-      // alert(this.task)
-
       TaskService.addSubTask(this.subtask)
         .then(response => {
-          console.log(response.data) // For now, logs out the response
+          console.log(response.data)
+          // For now, logs out the response
         })
         .catch(error => {
           console.log('There was an error:', error.response) // Logs out the error
         })
     },
-    created() {
-      TaskService.getSubtask(this.id)
-        .then(response => {
-          this.subtask = response.data
-          TaskService.getTask(this.subtask.task_id)
-            .then(response => {
-              this.task_name = response.data.name
-            })
-            .catch(errors => {
-              console.log('ERROR: ' + errors.response)
-            })
-        })
-        .catch(errors => {
-          console.log('ERROR: ' + errors.response)
-        })
-    }
+    created() {}
   }
 }
 </script>

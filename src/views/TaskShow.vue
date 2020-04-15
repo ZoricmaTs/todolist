@@ -4,7 +4,7 @@
     <div class="task-create">
       <div class="addsubtask-block">
         <h2 class="title task-heading__green addsubtask-block">{{ task.name }}</h2>
-        <router-link :to="{ name: 'subtask-create' }">
+        <router-link :to="{ name: 'subtask-create', params: { task_id: task.id } }">
           <button type="button" class="btn material-icons md-36 btn-add">add_circle</button>
         </router-link>
       </div>
