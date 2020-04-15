@@ -24,7 +24,7 @@ body {
 }
 #app {
   box-sizing: border-box;
-  width: 600px;
+  width: 660px;
   padding: 0 20px 20px;
   margin: 0 auto;
 }
@@ -69,6 +69,9 @@ small {
 }
 .-text-error {
   color: tomato;
+}
+.title {
+  width: 400px;
 }
 button,
 [type='button'],

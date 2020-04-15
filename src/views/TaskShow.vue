@@ -76,11 +76,18 @@ export default {
 .btn-addsubtask {
   cursor: pointer;
 }
+.task-btn-container {
+  display: flex;
+  flex-direction: row;
+
+  width: 100px;
+}
 .subtask-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 570px;
 }
 .option-check {
   display: flex;
