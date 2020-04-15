@@ -23,7 +23,12 @@
           </div>
         </label>
         <div class="task-btn-container">
-          <router-link :to="{ name: 'subtask-edit', params: { id: subtask.id } }">
+          <router-link
+            :to="{
+              name: 'subtask-edit',
+              params: { id: subtask.id }
+            }"
+          >
             <button type="button" class="btn btn-edit material-icons">create</button>
           </router-link>
           <button type="button" class="btn btn-remove material-icons">close</button>

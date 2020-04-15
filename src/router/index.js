@@ -43,7 +43,7 @@ const routes = [
     props: true
   },
   {
-    path: '/tasks/subtasks',
+    path: '/subtasks/:id',
     name: 'subtask-edit',
     component: SubTaskEdit,
     props: true

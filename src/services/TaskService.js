@@ -19,6 +19,9 @@ export default {
   updateTask(task) {
     return apiClient.put('/tasks/' + task.id, task)
   },
+  updateSubTask(subtask) {
+    return apiClient.put('/subtasks/' + subtask.id, subtask)
+  },
   addTask(task) {
     return apiClient.post('/tasks/', task)
   },
@@ -27,5 +30,8 @@ export default {
   },
   getSubTasks(task_id) {
     return apiClient.get('/subtasks/?task_id=' + task_id)
+  },
+  getSubtask(id) {
+    return apiClient.get('/subtasks/' + id)
   }
 }
