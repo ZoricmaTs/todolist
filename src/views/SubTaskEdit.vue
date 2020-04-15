@@ -24,9 +24,13 @@
         <span class="check__text">Срочность</span>
       </div>
     </label>
+
     <div class="buttons-container">
-      <button type="button" class="btn btn-grey">Отмена</button>
-      <button type="button" class="btn btn-green">Готово</button>
+      <router-link :to="{ name: 'task-show', params: { id: subtask.task_id } }">
+        <!-- <router-link class :to="{ name: 'task-show' }">-->
+        <button type="button" class="btn btn-grey">Отмена</button>
+        <button type="button" class="btn btn-green" @click="updateSubTask">Готово</button>
+      </router-link>
     </div>
   </div>
 </template>
