@@ -3,12 +3,19 @@
     <h1 class="tasklist-heading">Список задач</h1>
     <div class="container">
       <router-link class :to="{ name: 'task-create' }">
-        <button type="button" class="btn btn-add-circle material-icons md-36">add_circle</button>
+        <button
+          type="button"
+          class="btn btn-add-circle material-icons material-icons__color_green md-36"
+        >add_circle</button>
       </router-link>
 
       <select class="filter">
-        <i class="filter-btn material-icons">arrow_drop_down</i>
-        <option v-for="task in tasks" :key="task.status" :task="task">{{ task.status }}</option>
+        <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
+        <option v-for="task in tasks" :key="task.status" :task="task">
+          {{
+          task.status
+          }}
+        </option>
       </select>
     </div>
 

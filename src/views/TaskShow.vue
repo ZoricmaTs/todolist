@@ -5,7 +5,10 @@
       <div class="addsubtask-block">
         <h2 class="title task-heading__green addsubtask-block">{{ task.name }}</h2>
         <router-link :to="{ name: 'subtask-create', params: { task_id: task.id } }">
-          <button type="button" class="btn material-icons md-36 btn-add">add_circle</button>
+          <button
+            type="button"
+            class="btn material-icons material-icons__color_green md-36 btn-add"
+          >add_circle</button>
         </router-link>
       </div>
 
@@ -15,11 +18,16 @@
         :key="subtask.id"
         :subtask="subtask"
       >
+        <span
+          class="material-icons material-icons__color_red"
+          v-if="subtask.importance"
+        >priority_high</span>
+        <span style="width: 24px" v-else></span>
         <label class="check option-check">
           <input class="check__input" type="checkbox" />
           <span class="check__box"></span>
           <div class="check__text-block">
-            <span class="check__text">{{ subtask.name }}</span>
+            <span class="check__text subtask-name">{{ subtask.name }}</span>
           </div>
         </label>
         <div class="task-btn-container">
@@ -29,9 +37,15 @@
               params: { id: subtask.id }
             }"
           >
-            <button type="button" class="btn btn-edit material-icons">create</button>
+            <button
+              type="button"
+              class="btn btn-edit material-icons material-icons__color_green"
+            >create</button>
           </router-link>
-          <button type="button" class="btn btn-remove material-icons">close</button>
+          <button
+            type="button"
+            class="btn btn-remove material-icons material-icons__color_green"
+          >close</button>
         </div>
       </div>
     </div>
@@ -68,6 +82,8 @@ export default {
 </script>
 
 <style lang="scss">
+.unInportance {
+}
 .addsubtask-block {
   display: flex;
   flex-direction: row;
@@ -77,7 +93,9 @@ export default {
 .btn-add {
   cursor: pointer;
 }
-
+.material-icons__color_red {
+  color: #eb5757;
+}
 .task-btn-container {
   display: flex;
   flex-direction: row;
@@ -87,8 +105,8 @@ export default {
 .subtask-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   width: 570px;
 }
 .option-check {
@@ -144,5 +162,8 @@ export default {
     background: url('../assets/checked.svg') center no-repeat;
     text-decoration: line-through;
   }
+}
+.subtask-name {
+  width: 400px;
 }
 </style>

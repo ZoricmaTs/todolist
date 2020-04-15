@@ -12,10 +12,13 @@
     </router-link>
     <div class="task-btn-container">
       <router-link :to="{ name: 'task-edit', params: { id: task.id } }">
-        <button type="button" class="btn btn-edit material-icons">create</button>
+        <button type="button" class="btn btn-edit material-icons material-icons__color_green">create</button>
       </router-link>
       <router-link :to="{ name: 'task-remove', params: { id: task.id } }">
-        <button type="button" class="btn btn-remove material-icons">close</button>
+        <button
+          type="button"
+          class="btn btn-remove material-icons material-icons__color_green"
+        >close</button>
       </router-link>
     </div>
   </div>
@@ -65,6 +68,8 @@ export default {
   margin-right: 10px;
 }
 .material-icons {
+}
+.material-icons__color_green {
   color: #4e9243;
 }
 .task-heading {

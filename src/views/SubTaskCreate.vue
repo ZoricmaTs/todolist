@@ -12,6 +12,14 @@
       v-model="subtask.name"
       required
     />
+    <span>Дата создания подзадачи: {{ subtask.created_date }}</span>
+    <label class="check option-check">
+      <input class="check__input" type="checkbox" v-model="subtask.importance" />
+      <span class="check__box"></span>
+      <div class="check__text-block">
+        <span class="check__text">Срочность</span>
+      </div>
+    </label>
     <div class="buttons-container">
       <router-link :to="{ name: 'task-show', params: { id: task_id } }">
         <button type="button" class="btn btn-grey">Отмена</button>
