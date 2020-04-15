@@ -61,6 +61,7 @@ export default {
       subtasks: []
     }
   },
+
   created() {
     TaskService.getTask(this.id)
       .then(response => {
