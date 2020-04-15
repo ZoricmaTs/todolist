@@ -12,6 +12,8 @@
       v-model="subtask.name"
       required
     />
+    <label class="description__label" id="description">Краткое описание</label>
+    <textarea class="description__textarea" for="description" required="required"></textarea>
     <span>Дата создания подзадачи: {{ subtask.created_date }}</span>
     <label class="check option-check">
       <input class="check__input" type="checkbox" v-model="subtask.importance" />

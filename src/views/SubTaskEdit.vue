@@ -5,8 +5,6 @@
     </div>
     <span class="subtask-text">Наименование задачи</span>
     <h2 class="title task-heading__green-border-none">{{ task_name }}</h2>
-    <label class="task-label" id="created_date">Дата создания подзадачи:</label>
-    <span>{{ subtask.created_date }}</span>
     <span class="subtask-text">Наименование подзадачи</span>
     <label class="task-label" id="name"></label>
     <input
@@ -17,6 +15,10 @@
       v-model="subtask.name"
       required
     />
+    <label class="description__label" id="description">Краткое описание</label>
+    <textarea class="description__textarea" for="description" required="required"></textarea>
+
+    <span class="task-label" id="created_date">Дата создания подзадачи: >{{ subtask.created_date }}</span>
     <label class="check option-check">
       <input class="check__input" type="checkbox" v-model="subtask.importance" />
       <span class="check__box"></span>
@@ -88,7 +90,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .task-heading__green-border-none {
   align-items: center;
   font-style: normal;
@@ -99,5 +101,15 @@ export default {
   line-height: 35px;
   letter-spacing: 0.1em;
   margin-bottom: 25px;
+}
+.description__textarea {
+  border: 1px solid #4e9243;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 35px;
+  outline: none;
+}
+.description__label {
 }
 </style>
