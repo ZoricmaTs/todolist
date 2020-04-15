@@ -71,7 +71,7 @@ small {
   color: tomato;
 }
 .title {
-  width: 400px;
+  width: 500px;
 }
 button,
 [type='button'],

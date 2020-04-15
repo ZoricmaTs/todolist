@@ -2,13 +2,13 @@
   <div>
     <h1 class="tasklist-heading">Просмотр задачи</h1>
     <div class="task-create">
-      <h2 class="title task-heading__green addsubtask-block">
-        {{ task.name }}
-        <button
-          type="button"
-          class="btn material-icons md-36 btn-addsubtask"
-        >add_circle</button>
-      </h2>
+      <div class="addsubtask-block">
+        <h2 class="title task-heading__green addsubtask-block">{{ task.name }}</h2>
+        <router-link :to="{ name: 'subtask-create' }">
+          <button type="button" class="btn material-icons md-36 btn-add">add_circle</button>
+        </router-link>
+      </div>
+
       <div
         class="subtask-container"
         v-for="subtask in subtasks"
@@ -70,12 +70,14 @@ export default {
 <style lang="scss">
 .addsubtask-block {
   display: flex;
-
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
-.btn-addsubtask {
+.btn-add {
   cursor: pointer;
 }
+
 .task-btn-container {
   display: flex;
   flex-direction: row;

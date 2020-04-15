@@ -6,6 +6,7 @@ import TaskCreate from '@/views/TaskCreate.vue'
 import TaskEdit from '@/views/TaskEdit.vue'
 import TaskRemove from '@/views/TaskRemove.vue'
 import SubTaskEdit from '@/views/SubTaskEdit.vue'
+import SubTaskCreate from '@/views/SubTaskCreate.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -46,6 +47,12 @@ const routes = [
     path: '/subtasks/:id',
     name: 'subtask-edit',
     component: SubTaskEdit,
+    props: true
+  },
+  {
+    path: '/subtasks/create',
+    name: 'subtask-create',
+    component: SubTaskCreate,
     props: true
   }
 ]

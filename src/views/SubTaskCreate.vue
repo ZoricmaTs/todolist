@@ -1,9 +1,74 @@
 <template>
-  <div></div>
-</template>
+  <div class="task-create">
+    <div class="task-header">
+      <h1 class="task-heading__green">Добавление подзадачи</h1>
+    </div>
+    <label class="task-label">Наименование подзадачи</label>
+    <input
+      class="task-input"
+      type="text"
+      name="name"
+      placeholder="введите наименование подзадачи"
+      v-model="subtask.name"
+      required
+    />
+    <input type="hidden" v-model="subtask.status" />
+    <div class="buttons-container">
+      <router-link :to="{ name: 'task-show', params: { id: subtask.task_id } }">
+        <button type="button" class="btn btn-grey">Отмена</button>
 
+        <button type="button" class="btn btn-green" @click="addSubTask">Готово</button>
+      </router-link>
+    </div>
+  </div>
+</template>
 <script>
-export default {}
+import TaskService from '@/services/TaskService.js'
+export default {
+  props: ['id'],
+
+  data() {
+    return {
+      subtask: {},
+      task_name: '',
+      task: {
+        created_date: '03.11.2020 10:25',
+        edit_date: '04.11.2020 10:25',
+        status: 0,
+        statusname: 'нет подзадач'
+      }
+    }
+  },
+  methods: {
+    addSubTask() {
+      // alert(this.task)
+
+      TaskService.addSubTask(this.subtask)
+        .then(response => {
+          console.log(response.data) // For now, logs out the response
+        })
+        .catch(error => {
+          console.log('There was an error:', error.response) // Logs out the error
+        })
+    },
+    created() {
+      TaskService.getSubtask(this.id)
+        .then(response => {
+          this.subtask = response.data
+          TaskService.getTask(this.subtask.task_id)
+            .then(response => {
+              this.task_name = response.data.name
+            })
+            .catch(errors => {
+              console.log('ERROR: ' + errors.response)
+            })
+        })
+        .catch(errors => {
+          console.log('ERROR: ' + errors.response)
+        })
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>
