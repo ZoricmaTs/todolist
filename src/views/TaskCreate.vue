@@ -14,8 +14,10 @@
     />
     <input type="hidden" v-model="task.status" />
     <div class="buttons-container">
-      <button type="button" class="btn btn-grey">Отмена</button>
-      <button type="button" class="btn btn-green" @click="addTask">Готово</button>
+      <router-link class :to="{ name: 'tasks' }">
+        <button type="button" class="btn btn-grey">Отмена</button>
+        <button type="button" class="btn btn-green" @click="addTask">Готово</button>
+      </router-link>
     </div>
   </div>
 </template>

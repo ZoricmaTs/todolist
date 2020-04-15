@@ -7,8 +7,10 @@
     <span class="task-heading__alarm-text">Внимание!</span>
     <span class="task-heading__alarm-text">Все подзадачи данного списка будут удалены.</span>
     <div class="buttons-container">
-      <button type="button" class="btn btn-grey">Отмена</button>
-      <button type="button" class="btn btn-green" @click="deleteTask">Удалить</button>
+      <router-link class :to="{ name: 'tasks' }">
+        <button type="button" class="btn btn-grey">Отмена</button>
+        <button type="button" class="btn btn-green" @click="deleteTask">Удалить</button>
+      </router-link>
     </div>
   </div>
 </template>
