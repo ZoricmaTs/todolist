@@ -7,7 +7,7 @@
         class="check__input"
         type="checkbox"
         v-model="subtask.status"
-        @change="completedSubTask(oldval, newval)"
+        @change="completedSubTask"
       />
       <span class="check__box"></span>
       <div class="check__text-block">
@@ -34,8 +34,8 @@ export default {
     subtask: Object
   },
   methods: {
-    completedSubTask(oldval, newval) {
-      this.subtask.status = newval
+    completedSubTask() {
+      // this.subtask.status = newval
       TaskService.completedSubTask(this.subtask)
     }
   }
@@ -50,9 +50,7 @@ export default {
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid #4e9243;
 }
-/*.material-icons + .uncompleted {
-  color: white;
-}*/
+
 .empty {
   background-color: white;
   border: 1px solid #4e9243;
