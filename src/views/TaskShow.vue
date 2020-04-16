@@ -12,48 +12,22 @@
         </router-link>
       </div>
 
-      <div
+      <SubTaskCard
         class="subtask-container"
         v-for="subtask in subtasks"
         :key="subtask.id"
         :subtask="subtask"
-      >
-        <span
-          class="material-icons material-icons__color_red"
-          v-if="subtask.importance"
-        >priority_high</span>
-        <span style="width: 24px" v-else></span>
-        <label class="check option-check">
-          <input class="check__input" type="checkbox" />
-          <span class="check__box"></span>
-          <div class="check__text-block">
-            <span class="check__text subtask-name">{{ subtask.name }}</span>
-          </div>
-        </label>
-        <div class="task-btn-container">
-          <router-link
-            :to="{
-              name: 'subtask-edit',
-              params: { id: subtask.id }
-            }"
-          >
-            <button
-              type="button"
-              class="btn btn-edit material-icons material-icons__color_green"
-            >create</button>
-          </router-link>
-          <button
-            type="button"
-            class="btn btn-remove material-icons material-icons__color_green"
-          >close</button>
-        </div>
-      </div>
+      ></SubTaskCard>
     </div>
   </div>
 </template>
 <script>
+import SubTaskCard from '@/components/SubTaskCard.vue'
 import TaskService from '@/services/TaskService.js'
 export default {
+  components: {
+    SubTaskCard
+  },
   props: ['id'],
   data() {
     return {
@@ -61,7 +35,6 @@ export default {
       subtasks: []
     }
   },
-
   created() {
     TaskService.getTask(this.id)
       .then(response => {

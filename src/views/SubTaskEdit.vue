@@ -48,17 +48,6 @@ export default {
     }
   },
   methods: {
-    updateTask() {
-      // alert(this.task)
-
-      TaskService.updateTask(this.task)
-        .then(response => {
-          console.log(response.data) // For now, logs out the response
-        })
-        .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
-        })
-    },
     updateSubTask() {
       // alert(this.task)
 

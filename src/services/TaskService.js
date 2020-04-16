@@ -23,7 +23,7 @@ export default {
     return apiClient.put('/subtasks/' + subtask.id, subtask)
   },
   completedSubTask(subtask) {
-    return apiClient.put('/subtasks/' + subtask.status, subtask)
+    return apiClient.put('/subtasks/' + subtask.id, subtask)
   },
   addTask(task) {
     return apiClient.post('/tasks/', task)

@@ -12,8 +12,10 @@
       v-model="subtask.name"
       required
     />
+
     <label class="description__label" id="description">Краткое описание</label>
     <textarea class="description__textarea" for="description" required="required"></textarea>
+
     <span>Дата создания подзадачи: {{ subtask.created_date }}</span>
     <label class="check option-check">
       <input class="check__input" type="checkbox" v-model="subtask.importance" />
@@ -43,7 +45,8 @@ export default {
         created_date: '03.11.2020 10:25',
         edit_date: '04.11.2020 10:25',
         status: false,
-        importance: false
+        importance: false,
+        description: ''
       },
       task_name: ''
     }
@@ -59,6 +62,7 @@ export default {
           console.log('There was an error:', error.response) // Logs out the error
         })
     },
+
     created() {}
   }
 }

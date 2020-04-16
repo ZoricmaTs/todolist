@@ -1,20 +1,43 @@
 <template>
-  <div class="task-container task-card">
-    <span class="task-heading">{{ task.name }}</span>
-
+  <div class>
+    <span class="material-icons material-icons__color_red" v-if="subtask.importance">priority_high</span>
+    <span style="width: 24px" v-else></span>
+    <label class="check option-check">
+      <input
+        class="check__input"
+        type="checkbox"
+        v-model="subtask.status"
+        @change="completedSubTask(oldval, newval)"
+      />
+      <span class="check__box"></span>
+      <div class="check__text-block">
+        <span class="check__text subtask-name">{{ subtask.name }}</span>
+      </div>
+    </label>
     <div class="task-btn-container">
-      <router-link :to="{ name: 'subtask-edit', params: { id: task.id } }">
-        <button type="button" class="btn btn-edit material-icons">create</button>
+      <router-link
+        :to="{
+          name: 'subtask-edit',
+          params: { id: subtask.id }
+        }"
+      >
+        <button type="button" class="btn btn-edit material-icons material-icons__color_green">create</button>
       </router-link>
-
-      <button type="button" class="btn btn-remove material-icons">close</button>
+      <button type="button" class="btn btn-remove material-icons material-icons__color_green">close</button>
     </div>
   </div>
 </template>
 <script>
+import TaskService from '@/services/TaskService.js'
 export default {
   props: {
     subtask: Object
+  },
+  methods: {
+    completedSubTask(oldval, newval) {
+      this.subtask.status = newval
+      TaskService.completedSubTask(this.subtask)
+    }
   }
 }
 </script>

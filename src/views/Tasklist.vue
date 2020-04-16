@@ -11,11 +11,7 @@
 
       <select class="filter">
         <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
-        <option v-for="task in tasks" :key="task.status" :task="task">
-          {{
-          task.status
-          }}
-        </option>
+        <option v-for="task in tasks" :key="task.status" :task="task">{{ task.status }}</option>
       </select>
     </div>
 

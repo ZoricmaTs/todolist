@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Authorization from '@/components/Authorization.vue'
 import Tasklist from '@/views/Tasklist.vue'
 import TaskShow from '@/views/TaskShow.vue'
 import TaskCreate from '@/views/TaskCreate.vue'
@@ -7,6 +8,7 @@ import TaskEdit from '@/views/TaskEdit.vue'
 import TaskRemove from '@/views/TaskRemove.vue'
 import SubTaskEdit from '@/views/SubTaskEdit.vue'
 import SubTaskCreate from '@/views/SubTaskCreate.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
