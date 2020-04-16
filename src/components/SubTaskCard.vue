@@ -23,7 +23,17 @@
       >
         <button type="button" class="btn btn-edit material-icons material-icons__color_green">create</button>
       </router-link>
-      <button type="button" class="btn btn-remove material-icons material-icons__color_green">close</button>
+      <router-link
+        :to="{
+          name: 'subtask-remove',
+          params: { id: subtask.id }
+        }"
+      >
+        <button
+          type="button"
+          class="btn btn-remove material-icons material-icons__color_green"
+        >close</button>
+      </router-link>
     </div>
   </div>
 </template>

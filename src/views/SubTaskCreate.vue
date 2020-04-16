@@ -14,7 +14,12 @@
     />
 
     <label class="description__label" id="description">Краткое описание</label>
-    <textarea class="description__textarea" for="description" required="required"></textarea>
+    <textarea
+      class="description__textarea"
+      for="description"
+      required="required"
+      :value="subtask.description"
+    ></textarea>
 
     <span>Дата создания подзадачи: {{ subtask.created_date }}</span>
     <label class="check option-check">
@@ -61,6 +66,11 @@ export default {
         .catch(error => {
           console.log('There was an error:', error.response) // Logs out the error
         })
+    },
+
+    completedSubTask() {
+      // this.subtask.status = newval
+      TaskService.completedSubTask(this.subtask)
     },
 
     created() {}

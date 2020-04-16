@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Authorization from '@/components/Authorization.vue'
 import Tasklist from '@/views/Tasklist.vue'
 import TaskShow from '@/views/TaskShow.vue'
 import TaskCreate from '@/views/TaskCreate.vue'
@@ -8,6 +7,7 @@ import TaskEdit from '@/views/TaskEdit.vue'
 import TaskRemove from '@/views/TaskRemove.vue'
 import SubTaskEdit from '@/views/SubTaskEdit.vue'
 import SubTaskCreate from '@/views/SubTaskCreate.vue'
+import SubTaskRemove from '@/views/SubTaskRemove.vue'
 
 Vue.use(VueRouter)
 
@@ -55,6 +55,12 @@ const routes = [
     path: '/subtasks/create/:task_id',
     name: 'subtask-create',
     component: SubTaskCreate,
+    props: true
+  },
+  {
+    path: '/subtasks/remove/:task_id',
+    name: 'subtask-remove',
+    component: SubTaskRemove,
     props: true
   }
 ]

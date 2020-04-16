@@ -120,7 +120,8 @@
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "importance": false,
-      "id": 11
+      "id": 11,
+      "status": true
     },
     {
       "task_id": 2,
@@ -161,7 +162,8 @@
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "importance": true,
-      "id": 17
+      "id": 17,
+      "status": true
     },
     {
       "task_id": 3,
@@ -238,7 +240,8 @@
       "edit_date": "04.11.2020 10:25",
       "importance": true,
       "description": "",
-      "id": 25
+      "id": 25,
+      "status": false
     }
   ]
 }

@@ -34,6 +34,9 @@ export default {
   deleteTask(task) {
     return apiClient.delete('/tasks/' + task.id, task)
   },
+  deleteSubTask(task_id) {
+    return apiClient.delete('/subtasks/?task_id=' + task_id)
+  },
   getSubTasks(task_id) {
     return apiClient.get('/subtasks/?task_id=' + task_id)
   },
