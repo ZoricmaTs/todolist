@@ -18,7 +18,7 @@
     <label class="description__label" id="description">Краткое описание</label>
     <textarea class="description__textarea" for="description" required="required"></textarea>
 
-    <span class="task-label" id="created_date">Дата создания подзадачи: >{{ subtask.created_date }}</span>
+    <span class="task-label" id="created_date">Дата создания подзадачи: {{ subtask.created_date }}</span>
     <label class="check option-check">
       <input class="check__input" type="checkbox" v-model="subtask.importance" />
       <span class="check__box"></span>
