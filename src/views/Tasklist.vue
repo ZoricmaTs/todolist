@@ -9,9 +9,9 @@
         >add_circle</button>
       </router-link>
 
-      <select class="filter">
+      <select class="filter" v-model="selectedFilter" @change="changeFilter">
         <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
-        <option v-for="task in tasks" :key="task.status" :task="task">{{ task.status }}</option>
+        <option v-for="filter in filters" :key="filter.id" :value="filter.id">{{ filter.name }}</option>
       </select>
     </div>
 
@@ -29,11 +29,41 @@ export default {
   },
   data() {
     return {
-      tasks: []
+      tasks: [],
+      selectedFilter: 2,
+      filters: [
+        { id: 2, name: 'Невыполненные' },
+        { id: 1, name: 'Выполненные' },
+        { id: 0, name: 'Все' }
+      ]
+    }
+  },
+  methods: {
+    changeFilter() {
+      console.log('changeFilter', this.selectedFilter)
+
+      if (this.selectedFilter == 0) {
+        ///все
+        TaskService.getTasks()
+          .then(response => {
+            this.tasks = response.data
+          })
+          .catch(errors => {
+            console.log('ERROR: ' + errors.response)
+          })
+      } else {
+        TaskService.getTasksByStatus(this.selectedFilter)
+          .then(response => {
+            this.tasks = response.data
+          })
+          .catch(error => {
+            console.log('There was an error:', error.response) // Logs out the error
+          })
+      }
     }
   },
   created() {
-    TaskService.getTasks()
+    TaskService.getTasksByStatus(2)
       .then(response => {
         this.tasks = response.data
       })

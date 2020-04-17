@@ -13,6 +13,9 @@ export default {
   getTasks() {
     return apiClient.get('/tasks')
   },
+  getTasksByStatus(status) {
+    return apiClient.get('/tasks/?status=' + status)
+  },
   getTask(id) {
     return apiClient.get('/tasks/' + id)
   },
@@ -34,8 +37,8 @@ export default {
   deleteTask(task) {
     return apiClient.delete('/tasks/' + task.id, task)
   },
-  deleteSubTask(task_id) {
-    return apiClient.delete('/subtasks/?task_id=' + task_id)
+  deleteSubTask(subtask) {
+    return apiClient.delete('/subtasks/' + subtask.id, subtask)
   },
   getSubTasks(task_id) {
     return apiClient.get('/subtasks/?task_id=' + task_id)

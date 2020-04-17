@@ -40,7 +40,7 @@ export default {
     deleteSubTask() {
       // alert(this.task)
 
-      TaskService.deleteSubTask(this.id)
+      TaskService.deleteSubTask(this.subtask)
         .then(response => {
           this.subtask = response.data
           TaskService.deleteTask(this.subtask.task_id)
