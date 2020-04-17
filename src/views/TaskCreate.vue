@@ -40,7 +40,10 @@ export default {
 
       TaskService.addTask(this.task)
         .then(response => {
-          console.log(response.data) // For now, logs out the response
+          this.task = {
+            id: response.data.id,
+            name: response.data.name
+          }
         })
         .catch(error => {
           console.log('There was an error:', error.response) // Logs out the error

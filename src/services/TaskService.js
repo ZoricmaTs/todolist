@@ -1,20 +1,22 @@
 import axios from 'axios'
 
+const authtoken = '?login=user111&api_token=111'
+
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://127.0.0.1:8080/api',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json'
   }
 })
-
+//http://127.0.0.1:8080/api/ task?list_id=2 &api_token=111 &login=user111
 export default {
   getTasks() {
-    return apiClient.get('/tasks')
+    return apiClient.get('/list?login=user111&api_token=111')
   },
   getTask(id) {
-    return apiClient.get('/tasks/' + id)
+    return apiClient.get('/tasks?login=user111&api_token=111' + id)
   },
   updateTask(task) {
     return apiClient.put('/tasks/' + task.id, task)
@@ -26,7 +28,7 @@ export default {
     return apiClient.put('/subtasks/' + subtask.id, subtask)
   },
   addTask(task) {
-    return apiClient.post('/tasks/', task)
+    return apiClient.post('/tasks/?login=user111&api_token=111' + task)
   },
   addSubTask(subtask) {
     return apiClient.post('/subtasks/', subtask)

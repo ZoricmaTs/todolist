@@ -31,21 +31,22 @@ export default {
   },
   methods: {
     updateTask() {
-      // alert(this.task)
-
-      TaskService.updateTask(this.task)
+      TaskService.updateTask(this.id)
         .then(response => {
-          console.log(response.data) // For now, logs out the response
+          console.log(response.data)
         })
         .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
+          console.log('There was an error:', error.response)
         })
     }
   },
   created() {
-    TaskService.getTask(this.id)
+    TaskService.getTask(this.task.id)
       .then(response => {
-        this.task = response.data
+        this.task = {
+          id: response.data.id,
+          name: response.data.name
+        }
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)

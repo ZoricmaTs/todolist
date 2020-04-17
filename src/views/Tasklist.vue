@@ -11,7 +11,7 @@
 
       <select class="filter">
         <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
-        <option v-for="task in tasks" :key="task.status" :task="task">{{ task.status }}</option>
+        <!--option v-for="task in tasks" :key="task" :task="task">{{ task.status }}</option-->
       </select>
     </div>
 
@@ -35,12 +35,31 @@ export default {
   created() {
     TaskService.getTasks()
       .then(response => {
-        this.tasks = response.data
+        console.log(response)
+        var data = response.data
+        var task = {}
+        for (let i = 0; i < data.length; i++) {
+          task = {
+            id: data[i].id,
+            name: data[i].name,
+            status: 0 // нет в api
+          }
+          //status
+          this.tasks.push(task)
+        }
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)
       })
   }
+  /* computed: {
+    TasksFilter: function() {
+      let statusTask = this.status;
+      return this.status.filter(function(el) {
+            return el.title.indexOf(statusTask !== 1;
+        });
+    }
+  }*/
 }
 </script>
 
