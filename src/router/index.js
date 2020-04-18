@@ -9,10 +9,15 @@ import TaskRemove from '@/views/TaskRemove.vue'
 import SubTaskEdit from '@/views/SubTaskEdit.vue'
 import SubTaskCreate from '@/views/SubTaskCreate.vue'
 import SubTaskRemove from '@/views/SubTaskRemove.vue'
-
+import HomePage from '@/views/HomePage.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: HomePage
+  },
   {
     path: '/tasks',
     name: 'tasks',
