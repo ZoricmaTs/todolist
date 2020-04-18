@@ -24,6 +24,9 @@
         :key="subtask.id"
         :subtask="subtask"
       ></SubTaskCard>
+      <router-link to="/">
+        <button type="button" class="btn btn-grey btn-return">Назад</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -72,6 +75,9 @@ export default {
 }
 .btn-add {
   cursor: pointer;
+}
+.btn-return {
+  align-self: flex-start;
 }
 .material-icons__color_red {
   color: #eb5757;

@@ -18,7 +18,7 @@
       class="description__textarea"
       for="description"
       required="required"
-      :value="subtask.description"
+      v-model="subtask.description"
     ></textarea>
 
     <span>Дата создания подзадачи: {{ subtask.created_date }}</span>

@@ -179,7 +179,8 @@
       "edit_date": "04.11.2020 10:25",
       "importance": true,
       "id": 14,
-      "status": true
+      "status": true,
+      "description": "fcvbnm,"
     },
     {
       "status": true,
@@ -285,16 +286,6 @@
       "importance": false,
       "description": "",
       "id": 26
-    },
-    {
-      "task_id": 6,
-      "name": "sdsdsddsds",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": true,
-      "importance": true,
-      "description": "",
-      "id": 27
     },
     {
       "task_id": 7,
