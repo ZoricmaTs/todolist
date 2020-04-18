@@ -31,6 +31,30 @@
       "edit_date": "04.11.2020 10:25",
       "status": 2,
       "statusname": "невыполненная"
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "Собрание 26.04.20",
+      "id": 6
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "Произвести замеры напряжения",
+      "id": 7
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "чсмитьбю.б",
+      "id": 8
     }
   ],
   "subtasks": [
@@ -242,6 +266,46 @@
       "description": "",
       "id": 25,
       "status": false
+    },
+    {
+      "task_id": 6,
+      "name": "ss",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": true,
+      "importance": false,
+      "description": "",
+      "id": 26
+    },
+    {
+      "task_id": 6,
+      "name": "sdsdsddsds",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": true,
+      "importance": true,
+      "description": "",
+      "id": 27
+    },
+    {
+      "task_id": 7,
+      "name": "ячсмитьбю",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "",
+      "id": 28
+    },
+    {
+      "task_id": 6,
+      "name": "azxcvbnm,",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": true,
+      "importance": false,
+      "description": "",
+      "id": 29
     }
   ]
 }

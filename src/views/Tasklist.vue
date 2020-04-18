@@ -11,7 +11,11 @@
 
       <select class="filter" v-model="selectedFilter" @change="changeFilter">
         <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
-        <option v-for="filter in filters" :key="filter.id" :value="filter.id">{{ filter.name }}</option>
+        <option v-for="filter in filters" :key="filter.id" :value="filter.id">
+          {{
+          filter.name
+          }}
+        </option>
       </select>
     </div>
 
@@ -106,7 +110,7 @@ body {
   font-weight: normal;
   margin-top: 0;
   font-size: 14px;
-  width: 93px;
+  width: 150px;
   height: 40px;
   padding-right: 20px;
   cursor: pointer;
