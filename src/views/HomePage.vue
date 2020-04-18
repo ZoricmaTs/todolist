@@ -1,10 +1,5 @@
 <template>
   <div>
-    <div v-show="isShowTodolist">
-      <span>{{ login }}</span>
-      <span @click="exit">Выйти</span>
-    </div>
-
     <Authorization v-if="!isShowTodolist" @changeTodoListVisible="changeTodoListVisible" />
     <Tasklist v-if="isShowTodolist"></Tasklist>
   </div>
@@ -13,6 +8,7 @@
 <script>
 import Tasklist from '@/views/Tasklist.vue'
 import Authorization from '@/components/Authorization.vue'
+
 import TaskService from '@/services/TaskService.js'
 
 export default {
@@ -24,7 +20,7 @@ export default {
 
   data() {
     return {
-      isShowTodolist: false,
+      isShowTodolist: localStorage.token !== '',
       token: '',
       login: ''
     }
@@ -47,14 +43,7 @@ export default {
       if (localStorage.login) {
         this.login = localStorage.login
       }
-    },
-
-    exit() {
-      localStorage.token = ''
-      localStorage.login = ''
-      this.token = ''
-      this.login = ''
-      this.isShowTodolist = false
+      location.reload()
     }
   }
 }

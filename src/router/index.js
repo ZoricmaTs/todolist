@@ -16,7 +16,10 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomePage
+    component: HomePage,
+    meta: {
+      reload: true
+    }
   },
   {
     path: '/tasks',

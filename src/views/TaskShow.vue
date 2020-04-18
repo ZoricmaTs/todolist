@@ -3,12 +3,18 @@
     <h1 class="tasklist-heading">Просмотр задачи</h1>
     <div class="task-create">
       <div class="addsubtask-block">
-        <h2 class="title task-heading__green addsubtask-block">{{ task.name }}</h2>
-        <router-link :to="{ name: 'subtask-create', params: { task_id: task.id } }">
+        <h2 class="title task-heading__green addsubtask-block">
+          {{ task.name }}
+        </h2>
+        <router-link
+          :to="{ name: 'subtask-create', params: { task_id: task.id } }"
+        >
           <button
             type="button"
             class="btn material-icons material-icons__color_green md-36 btn-add"
-          >add_circle</button>
+          >
+            add_circle
+          </button>
         </router-link>
       </div>
 

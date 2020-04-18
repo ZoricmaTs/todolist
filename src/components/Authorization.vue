@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="authorization">
+    <h1 class="tasklist-heading">Вход</h1>
     <input class="task-input" type="text" name="name" placeholder="Логин" v-model="login" required />
     <input
       class="task-input"
@@ -10,7 +11,7 @@
       required
     />
 
-    <button type="button" class="btn btn-green" @click="getRole">Готово</button>
+    <button type="button" class="btn btn-green btn-authorization" @click="getRole">Готово</button>
   </div>
 </template>
 
@@ -42,8 +43,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body {
-  background: url(../assets/signinbackground.jpg) no-repeat;
-  background-size: 100% auto;
+.authorization {
+  display: flex;
+  flex-direction: column;
+}
+.btn-authorization {
+  align-self: flex-end;
 }
 </style>

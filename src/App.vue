@@ -2,10 +2,25 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">home</router-link>
+      <NavBar @exit="exit" />
       <router-view />
     </div>
   </div>
 </template>
+<script>
+import NavBar from '@/components/NavBar.vue'
+export default {
+  components: {
+    NavBar
+  },
+  methods: {
+    exit() {
+      localStorage.token = ''
+      localStorage.login = ''
+    }
+  }
+}
+</script>
 <style>
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
