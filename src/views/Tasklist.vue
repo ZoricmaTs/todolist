@@ -11,11 +11,7 @@
 
       <select class="filter" v-model="selectedFilter" @change="changeFilter">
         <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
-        <option v-for="filter in filters" :key="filter.id" :value="filter.id">
-          {{
-          filter.name
-          }}
-        </option>
+        <option v-for="filter in filters" :key="filter.id" :value="filter.id">{{ filter.name }}</option>
       </select>
     </div>
 
@@ -34,7 +30,7 @@ export default {
   data() {
     return {
       tasks: [],
-      selectedFilter: 2,
+      selectedFilter: localStorage.active_filter,
       filters: [
         { id: 2, name: 'Невыполненные' },
         { id: 1, name: 'Выполненные' },
@@ -48,6 +44,7 @@ export default {
 
       if (this.selectedFilter == 0) {
         ///все
+        localStorage.active_filter = this.selectedFilter
         TaskService.getTasks()
           .then(response => {
             this.tasks = response.data
@@ -56,6 +53,7 @@ export default {
             console.log('ERROR: ' + errors.response)
           })
       } else {
+        localStorage.active_filter = this.selectedFilter
         TaskService.getTasksByStatus(this.selectedFilter)
           .then(response => {
             this.tasks = response.data
@@ -67,13 +65,30 @@ export default {
     }
   },
   created() {
-    TaskService.getTasksByStatus(2)
-      .then(response => {
-        this.tasks = response.data
-      })
-      .catch(errors => {
-        console.log('ERROR: ' + errors.response)
-      })
+    if (localStorage.active_filter) {
+      this.selectedFilter = localStorage.active_filter
+    }
+
+    if (this.selectedFilter == 0) {
+      ///все
+      localStorage.active_filter = this.selectedFilter
+      TaskService.getTasks()
+        .then(response => {
+          this.tasks = response.data
+        })
+        .catch(errors => {
+          console.log('ERROR: ' + errors.response)
+        })
+    } else {
+      localStorage.active_filter = this.selectedFilter
+      TaskService.getTasksByStatus(this.selectedFilter)
+        .then(response => {
+          this.tasks = response.data
+        })
+        .catch(error => {
+          console.log('There was an error:', error.response) // Logs out the error
+        })
+    }
   }
 }
 </script>
@@ -81,7 +96,7 @@ export default {
 <style lang="scss">
 body {
   background: url(../assets/tasklistbackground.jpg) no-repeat;
-  background-size: 100% auto;
+  background-size: auto auto;
 }
 .container {
   display: flex;

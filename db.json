@@ -53,7 +53,7 @@
       "edit_date": "04.11.2020 10:25",
       "status": 0,
       "statusname": "нет подзадач",
-      "name": "чсмитьбю.б",
+      "name": "Внести изменения в схему",
       "id": 8
     },
     {
@@ -63,6 +63,14 @@
       "statusname": "нет подзадач",
       "name": "zcxvbnm",
       "id": 9
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "заполнить таблицу",
+      "id": 10
     }
   ],
   "subtasks": [
@@ -139,40 +147,6 @@
       "id": 9
     },
     {
-      "task_id": 2,
-      "name": "купить цветы",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "importance": true,
-      "id": 10
-    },
-    {
-      "task_id": 2,
-      "name": "eeeeeeeeeeeeeeeeeeeeeeeeeeee eee",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "importance": false,
-      "id": 11,
-      "status": true
-    },
-    {
-      "task_id": 2,
-      "name": "dfg;",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "importance": false,
-      "id": 12
-    },
-    {
-      "task_id": 2,
-      "name": "rerere",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "id": 13
-    },
-    {
       "task_id": 1,
       "name": "Купить фруктов",
       "created_date": "03.11.2020 10:25",
@@ -213,7 +187,7 @@
       "name": "смитьтимсчяс",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
-      "status": false,
+      "status": true,
       "importance": true,
       "id": 19
     },
@@ -232,7 +206,7 @@
       "name": "hjk",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
-      "status": false,
+      "status": true,
       "importance": false,
       "description": "",
       "id": 21
@@ -316,6 +290,26 @@
       "importance": false,
       "description": "",
       "id": 30
+    },
+    {
+      "task_id": 8,
+      "name": "Выполнить проверку техприсоединения",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "выезд на место 14.03.19",
+      "id": 31
+    },
+    {
+      "task_id": 8,
+      "name": "заявка на подключение",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": true,
+      "importance": false,
+      "description": "ввод в эксплуатацию ",
+      "id": 32
     }
   ]
 }
