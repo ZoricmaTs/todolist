@@ -16,8 +16,8 @@
     <div class="buttons-container">
       <router-link class :to="{ name: 'tasks' }">
         <button type="button" class="btn btn-grey">Отмена</button>
-        <button type="button" class="btn btn-green" @click="addTask">Готово</button>
       </router-link>
+      <button type="button" class="btn btn-green" @click="addTask">Готово</button>
     </div>
   </div>
 </template>
@@ -40,6 +40,7 @@ export default {
 
       TaskService.addTask(this.task)
         .then(response => {
+          this.$router.push({ name: 'tasks' })
           console.log(response.data) // For now, logs out the response
         })
         .catch(error => {

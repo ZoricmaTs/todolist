@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": 1,
-      "name": "Сходить в магазин",
+      "name": "Сходить в магазин!!",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "status": 0,
@@ -61,16 +61,24 @@
       "edit_date": "04.11.2020 10:25",
       "status": 0,
       "statusname": "нет подзадач",
-      "name": "zcxvbnm",
-      "id": 9
+      "name": "заполнить таблицу",
+      "id": 10
     },
     {
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "status": 0,
       "statusname": "нет подзадач",
-      "name": "заполнить таблицу",
-      "id": 10
+      "name": "новая задача",
+      "id": 11
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "задачааа",
+      "id": 12
     }
   ],
   "subtasks": [
@@ -91,60 +99,6 @@
     {
       "status": true,
       "id": 3
-    },
-    {
-      "task_id": "2",
-      "name": "eeeee",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": true,
-      "importance": false,
-      "id": 4
-    },
-    {
-      "task_id": 2,
-      "name": "rtttt",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": true,
-      "importance": false,
-      "id": 5
-    },
-    {
-      "task_id": 2,
-      "name": "llll",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "id": 6
-    },
-    {
-      "task_id": 2,
-      "name": "kuiouoiu",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "id": 7
-    },
-    {
-      "task_id": 2,
-      "name": "hhhhh",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "id": 8
-    },
-    {
-      "task_id": 2,
-      "name": "hjgjhgjh",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "id": 9
     },
     {
       "task_id": 1,
@@ -212,46 +166,6 @@
       "id": 21
     },
     {
-      "task_id": 10,
-      "name": "gf",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "description": "",
-      "id": 22
-    },
-    {
-      "task_id": 10,
-      "name": "gfhgjhn",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "description": "",
-      "id": 23
-    },
-    {
-      "task_id": 2,
-      "name": "апролорпавыфв",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": true,
-      "importance": false,
-      "description": "",
-      "id": 24
-    },
-    {
-      "task_id": 2,
-      "name": "выапро",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "importance": true,
-      "description": "",
-      "id": 25,
-      "status": false
-    },
-    {
       "task_id": 6,
       "name": "ss",
       "created_date": "03.11.2020 10:25",
@@ -310,6 +224,146 @@
       "importance": false,
       "description": "ввод в эксплуатацию ",
       "id": 32
+    },
+    {
+      "task_id": 3,
+      "name": "задача 3",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "cvgbhnm,.",
+      "id": 33
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 41
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 42
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 43
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 44
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 45
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 46
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 47
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 48
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 49
+    },
+    {
+      "task_id": 10,
+      "name": "пнуть кота",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "",
+      "id": 52
+    },
+    {
+      "task_id": 15,
+      "name": "задача1",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "авпарь",
+      "id": 53
+    },
+    {
+      "task_id": 2,
+      "name": "купить корову",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "",
+      "id": 54
+    },
+    {
+      "task_id": 2,
+      "name": "погладить кота",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": true,
+      "importance": true,
+      "description": "по часовой стрелке",
+      "id": 55
     }
   ]
 }

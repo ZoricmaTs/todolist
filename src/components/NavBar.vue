@@ -18,14 +18,14 @@ export default {
   mounted() {
     if (localStorage.token) {
       this.token = localStorage.token
-      isShowNavBar = true
+      this.isShowNavBar = true
     }
     if (localStorage.login) {
       this.login = localStorage.login
     }
   },
   created() {
-    isShowNavBar = localStorage.token !== ''
+    this.isShowNavBar = localStorage.token !== ''
   },
   methods: {
     exit() {

@@ -5,13 +5,17 @@
       <router-link class :to="{ name: 'task-create' }">
         <button
           type="button"
-          class="btn btn-add-circle material-icons material-icons__color_green md-36"
+          class="btn-add-circle material-icons material-icons__color_green md-36"
         >add_circle</button>
       </router-link>
 
       <select class="filter" v-model="selectedFilter" @change="changeFilter">
         <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
-        <option v-for="filter in filters" :key="filter.id" :value="filter.id">{{ filter.name }}</option>
+        <option v-for="filter in filters" :key="filter.id" :value="filter.id">
+          {{
+          filter.name
+          }}
+        </option>
       </select>
     </div>
 
@@ -68,12 +72,13 @@ export default {
     if (localStorage.active_filter) {
       this.selectedFilter = localStorage.active_filter
     }
-
+    console.log(this.selectedFilter)
     if (this.selectedFilter == 0) {
       ///все
       localStorage.active_filter = this.selectedFilter
       TaskService.getTasks()
         .then(response => {
+          console.log(response.data)
           this.tasks = response.data
         })
         .catch(errors => {
@@ -125,9 +130,10 @@ body {
   font-weight: normal;
   margin-top: 0;
   font-size: 14px;
-  width: 150px;
+  width: 155px;
   height: 40px;
   padding-right: 20px;
+  padding-left: 5px;
   cursor: pointer;
   border: 1px solid #4e9243;
   box-sizing: border-box;

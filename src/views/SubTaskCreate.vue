@@ -32,8 +32,8 @@
     <div class="buttons-container">
       <router-link :to="{ name: 'task-show', params: { id: task_id } }">
         <button type="button" class="btn btn-grey">Отмена</button>
-        <button type="button" class="btn btn-green" @click="addSubTask">Готово</button>
       </router-link>
+      <button type="button" class="btn btn-green" @click="addSubTask">Готово</button>
     </div>
   </div>
 </template>
@@ -61,6 +61,9 @@ export default {
       TaskService.addSubTask(this.subtask)
         .then(response => {
           console.log(response.data)
+
+          this.$router.push({ name: 'task-show', params: { id: this.task_id } })
+
           // For now, logs out the response
         })
         .catch(error => {
