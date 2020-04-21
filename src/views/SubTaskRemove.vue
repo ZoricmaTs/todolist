@@ -12,6 +12,7 @@
     <div class="buttons-container">
       <router-link class :to="{ name: 'task-show', params: { id: subtask.task_id } }">
         <button type="button" class="btn btn-grey">Отмена</button>
+
         <button type="button" class="btn btn-green" @click="deleteSubTask">Удалить</button>
       </router-link>
     </div>
