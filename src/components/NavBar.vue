@@ -12,7 +12,8 @@ export default {
     return {
       isShowNavBar: localStorage.token !== '',
       token: localStorage.token,
-      login: localStorage.login
+      login: localStorage.login,
+      userId: localStorage.userId
     }
   },
   mounted() {
@@ -23,6 +24,9 @@ export default {
     if (localStorage.login) {
       this.login = localStorage.login
     }
+    if (localStorage.userId) {
+      this.userId = localStorage.userId
+    }
   },
   created() {
     this.isShowNavBar = localStorage.token !== ''
@@ -31,8 +35,10 @@ export default {
     exit() {
       localStorage.token = ''
       localStorage.login = ''
+      localStorage.userId = ''
       this.token = ''
       this.login = ''
+      this.userId = ''
       this.isShowNavBar = false
       location.reload()
     }

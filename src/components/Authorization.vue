@@ -29,14 +29,19 @@ export default {
   },
   methods: {
     getRole() {
-      if (this.login === 'admin' && this.password === 'admin') {
-        localStorage.login = this.login
-        localStorage.token = this.password
-
-        this.$parent.changeTodoListVisible()
-      } else {
-        alert('Неверный пароль или логин')
-      }
+      TaskService.login(this.login, this.password)
+        .then(response => {
+          localStorage.login = this.login
+          localStorage.token = response.data.token
+          localStorage.userId = response.data.user.id
+          this.$parent.changeTodoListVisible()
+        })
+        .catch(error => {
+          if (error.response.status == 401) {
+            //alert(error.response.data.error)
+            alert('Указан неверный пароль или логин')
+          }
+        })
     }
   }
 }

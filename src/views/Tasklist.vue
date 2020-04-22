@@ -43,6 +43,22 @@ export default {
     }
   },
   methods: {
+    updateTaskList(taskList) {
+      let tasks = []
+      taskList.forEach(elem => {
+        let task = {
+          id: elem.id,
+          name: elem.title,
+          created_date: elem.created_at,
+          created_date: elem.updated_at,
+          edit_date: elem.updated_at,
+          status: 2,
+          statusname: 'невыполненная'
+        }
+        tasks.push(task)
+      })
+      return tasks
+    },
     changeFilter() {
       console.log('changeFilter', this.selectedFilter)
 
@@ -51,7 +67,7 @@ export default {
         localStorage.active_filter = this.selectedFilter
         TaskService.getTasks()
           .then(response => {
-            this.tasks = response.data
+            this.tasks = this.updateTaskList(response.data)
           })
           .catch(errors => {
             console.log('ERROR: ' + errors.response)
@@ -60,7 +76,7 @@ export default {
         localStorage.active_filter = this.selectedFilter
         TaskService.getTasksByStatus(this.selectedFilter)
           .then(response => {
-            this.tasks = response.data
+            this.tasks = this.updateTaskList(response.data)
           })
           .catch(error => {
             console.log('There was an error:', error.response) // Logs out the error
@@ -69,31 +85,13 @@ export default {
     }
   },
   created() {
-    if (localStorage.active_filter) {
-      this.selectedFilter = localStorage.active_filter
-    }
-    console.log(this.selectedFilter)
-    if (this.selectedFilter == 0) {
-      ///все
-      localStorage.active_filter = this.selectedFilter
-      TaskService.getTasks()
-        .then(response => {
-          console.log(response.data)
-          this.tasks = response.data
-        })
-        .catch(errors => {
-          console.log('ERROR: ' + errors.response)
-        })
-    } else {
-      localStorage.active_filter = this.selectedFilter
-      TaskService.getTasksByStatus(this.selectedFilter)
-        .then(response => {
-          this.tasks = response.data
-        })
-        .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
-        })
-    }
+    TaskService.getTasks()
+      .then(response => {
+        this.tasks = this.updateTaskList(response.data)
+      })
+      .catch(errors => {
+        console.log('ERROR: ' + errors.response)
+      })
   }
 }
 </script>

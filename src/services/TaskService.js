@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://fessan.ru/api',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
@@ -9,9 +9,26 @@ const apiClient = axios.create({
   }
 })
 
+const apiClientPost = axios.create({
+  baseURL: 'http://fessan.ru/api',
+  withCredentials: false,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+})
+
+const userId = `${localStorage.userId}`
+const credential = `token=${localStorage.token}`
+
 export default {
+  login(login, password) {
+    return apiClient.post(`/login?login=${login}&password=${password}`)
+  },
+
   getTasks() {
-    return apiClient.get('/tasks')
+    console.log(userId, credential)
+    return apiClient.get(`/tasks/${userId}/title/asc?${credential}`)
   },
   getTasksByStatus(status) {
     return apiClient.get('/tasks/?status=' + status)
@@ -29,7 +46,17 @@ export default {
     return apiClient.put('/subtasks/' + subtask.id, subtask)
   },
   addTask(task) {
-    return apiClient.post('/tasks/', task)
+    var bodyFormData = new FormData()
+    bodyFormData.set('title', task.name)
+    bodyFormData.set('details', 'sss')
+    bodyFormData.set('hard', 1)
+
+    return apiClientPost.post(`/tasks/create/${userId}`, {
+      title: task.name,
+      hard: 1,
+      details: 'd',
+      token: localStorage.token
+    })
   },
   addSubTask(subtask) {
     return apiClient.post('/subtasks/', subtask)
