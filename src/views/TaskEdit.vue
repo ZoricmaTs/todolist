@@ -31,6 +31,7 @@ export default {
   },
   methods: {
     updateTask() {
+      //добавить задачу
       // alert(this.task)
 
       TaskService.updateTask(this.task)

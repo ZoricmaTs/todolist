@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import App from '@/App.vue'
+
 import Tasklist from '@/views/Tasklist.vue'
 import TaskShow from '@/views/TaskShow.vue'
 import TaskCreate from '@/views/TaskCreate.vue'
@@ -10,6 +10,7 @@ import SubTaskEdit from '@/views/SubTaskEdit.vue'
 import SubTaskCreate from '@/views/SubTaskCreate.vue'
 import SubTaskRemove from '@/views/SubTaskRemove.vue'
 import HomePage from '@/views/HomePage.vue'
+import Registration from '@/views/Registration.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
     meta: {
       reload: true
     }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Registration
   },
   {
     path: '/tasks',

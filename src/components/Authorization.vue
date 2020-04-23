@@ -10,6 +10,10 @@
       v-model="password"
       required
     />
+    <div>
+      <span>Нет аккаунта?</span>
+      <router-link to="/register">Зарегистрироваться</router-link>
+    </div>
 
     <button type="button" class="btn btn-green btn-authorization" @click="getRole">Готово</button>
   </div>

@@ -25,7 +25,11 @@ export default {
   login(login, password) {
     return apiClient.post(`/login?login=${login}&password=${password}`)
   },
-
+  register(login, password, password_confirmation) {
+    return apiClient.post(
+      `/register?login=${login}&password=${password}&password_confirmation=${password_confirmation}`
+    )
+  },
   getTasks() {
     console.log(userId, credential)
     return apiClient.get(`/tasks/${userId}/title/asc?${credential}`)
