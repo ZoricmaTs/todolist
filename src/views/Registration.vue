@@ -1,7 +1,15 @@
 <template>
   <div class="authorization">
     <h1 class="tasklist-heading">Регистрация</h1>
-    <input class="task-input" type="text" name="name" placeholder="Логин" v-model="login" required />
+    <input class="task-input" type="text" name="name" placeholder="Имя" v-model="name" required />
+    <input
+      class="task-input"
+      type="email"
+      name="email"
+      placeholder="Электронная почта"
+      v-model="email"
+      required
+    />
     <input
       class="task-input"
       type="password"
@@ -70,7 +78,8 @@ export default {
         return
       }*/
       TaskService.register(
-        this.login,
+        this.name,
+        this.email,
         this.password,
         this.password_confirmation
       )

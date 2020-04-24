@@ -46,14 +46,20 @@ export default {
     updateTaskList(taskList) {
       let tasks = []
       taskList.forEach(elem => {
+        let status = 0
+        if (elem.success == 0 && elem.every == 0) {
+          status = 0
+        } else if (elem.success == 1 && elem.every == 1) {
+          status = 1
+        } else {
+          status = 2
+        }
         let task = {
           id: elem.id,
-          name: elem.title,
+          name: elem.name,
           created_date: elem.created_at,
-          created_date: elem.updated_at,
           edit_date: elem.updated_at,
-          status: 2,
-          statusname: 'невыполненная'
+          status: status
         }
         tasks.push(task)
       })

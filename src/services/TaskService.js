@@ -1,20 +1,22 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: 'http://fessan.ru/api',
+  baseURL: 'http://www.host1813334.hostland.pro/public/api',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.token}`
   }
 })
 
 const apiClientPost = axios.create({
-  baseURL: 'http://fessan.ru/api',
+  baseURL: 'http://www.host1813334.hostland.pro/public/api',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/x-www-form-urlencoded'
+    'Content-Type': 'application/x-www-form-urlencoded',
+    Authorization: `Bearer ${localStorage.token}`
   }
 })
 
@@ -22,17 +24,22 @@ const userId = `${localStorage.userId}`
 const credential = `token=${localStorage.token}`
 
 export default {
-  login(login, password) {
-    return apiClient.post(`/login?login=${login}&password=${password}`)
+  login(email, password) {
+    var bodyFormData = new FormData()
+    bodyFormData.set('email', email)
+    bodyFormData.set('password', password)
+    return apiClientPost.post(`/login`, bodyFormData)
   },
-  register(login, password, password_confirmation) {
-    return apiClient.post(
-      `/register?login=${login}&password=${password}&password_confirmation=${password_confirmation}`
-    )
+  register(name, email, password, password_confirmation) {
+    var bodyFormData = new FormData()
+    bodyFormData.set('name', name)
+    bodyFormData.set('email', email)
+    bodyFormData.set('password', password)
+    bodyFormData.set('password_confirmation', password_confirmation)
+    return apiClientPost.post(`/user`, bodyFormData)
   },
   getTasks() {
-    console.log(userId, credential)
-    return apiClient.get(`/tasks/${userId}/title/asc?${credential}`)
+    return apiClient.get(`/list`)
   },
   getTasksByStatus(status) {
     return apiClient.get('/tasks/?status=' + status)
@@ -51,22 +58,16 @@ export default {
   },
   addTask(task) {
     var bodyFormData = new FormData()
-    bodyFormData.set('title', task.name)
-    bodyFormData.set('details', 'sss')
-    bodyFormData.set('hard', 1)
-
-    return apiClientPost.post(`/tasks/create/${userId}`, {
-      title: task.name,
-      hard: 1,
-      details: 'd',
-      token: localStorage.token
-    })
+    bodyFormData.set('name', task.name)
+    bodyFormData.set('description', 'zzz')
+    return apiClientPost.post(`/list`, bodyFormData)
   },
   addSubTask(subtask) {
     return apiClient.post('/subtasks/', subtask)
   },
-  deleteTask(task) {
-    return apiClient.delete('/tasks/' + task.id, task)
+  deleteTask(id) {
+    console.log(id)
+    return apiClient.delete('/list/' + id)
   },
   deleteSubTask(subtask) {
     return apiClient.delete('/subtasks/' + subtask.id, subtask)

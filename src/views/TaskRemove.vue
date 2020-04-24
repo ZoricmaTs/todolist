@@ -3,7 +3,7 @@
     <div class="task-header">
       <h1 class="task-heading__green">Удаление задачи</h1>
     </div>
-    <h2 class="task-heading__alarm">Вы точно хотите удалить “Задача {{ task.name }}”?</h2>
+    <h2 class="task-heading__alarm">Вы точно хотите удалить “Задача {{ taskname }}”?</h2>
     <span class="task-heading__alarm-text">Внимание!</span>
     <span class="task-heading__alarm-text">Все подзадачи данного списка будут удалены.</span>
     <div class="buttons-container">
@@ -21,14 +21,12 @@ export default {
   props: ['id'],
   data() {
     return {
-      task: {}
+      taskname: ''
     }
   },
   methods: {
     deleteTask() {
-      // alert(this.task)
-
-      TaskService.deleteTask(this.task)
+      TaskService.deleteTask(this.id)
         .then(response => {
           this.$router.push({ name: 'tasks' })
           console.log(response.data) // For now, logs out the response
@@ -41,7 +39,8 @@ export default {
   created() {
     TaskService.getTask(this.id)
       .then(response => {
-        this.task = response.data
+        this.taskname = response.data.name
+        // this.task = response.data
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)
