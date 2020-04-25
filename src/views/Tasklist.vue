@@ -11,7 +11,11 @@
 
       <select class="filter" v-model="selectedFilter" @change="changeFilter">
         <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
-        <option v-for="filter in filters" :key="filter.id" :value="filter.id">{{ filter.name }}</option>
+        <option v-for="filter in filters" :key="filter.id" :value="filter.id">
+          {{
+          filter.name
+          }}
+        </option>
       </select>
     </div>
 
@@ -43,9 +47,9 @@ export default {
       let tasks = [] //++
       taskList.forEach(elem => {
         let status = 0
-        if (elem.success == 0 && elem.every == 0) {
+        if (elem.every == 0) {
           status = 0
-        } else if (elem.success == 1 && elem.every == 1) {
+        } else if (elem.success == elem.every) {
           status = 1
         } else {
           status = 2

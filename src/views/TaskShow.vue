@@ -47,7 +47,8 @@ export default {
         let serverSubtasks = response.data['0'][0].tasks
         serverSubtasks.forEach(serverSubtask => {
           let subtask = {
-            task_id: serverSubtask.id,
+            id: serverSubtask.id,
+            task_id: serverSubtask.listt_id,
             name: serverSubtask.name,
             description: serverSubtask.description,
             status: serverSubtask.mark == 1 ? true : false,

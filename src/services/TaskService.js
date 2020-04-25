@@ -54,8 +54,8 @@ export default {
   updateSubTask(subtask) {
     return apiClient.post('/task/update/' + id, subtask)
   },
-  completedSubTask(subtask) {
-    return apiClient.put('/subtasks/' + subtask.id, subtask)
+  completedSubTask(id) {
+    return apiClient.put('/task/' + id)
   },
   addTask(task) {
     //+
@@ -69,7 +69,7 @@ export default {
     bodyFormData.set('name', subtask.name)
     bodyFormData.set('listt_id', subtask.task_id)
     bodyFormData.set('description', subtask.description)
-    bodyFormData.set('urgency', subtask.status)
+    bodyFormData.set('urgency', subtask.importance == true ? 1 : 0)
     bodyFormData.set('name', subtask.name)
     return apiClient.post('/task', bodyFormData) //??
   },

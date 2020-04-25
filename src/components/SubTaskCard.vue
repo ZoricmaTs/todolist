@@ -46,7 +46,7 @@ export default {
   methods: {
     completedSubTask() {
       // this.subtask.status = newval
-      TaskService.completedSubTask(this.subtask)
+      TaskService.completedSubTask(this.subtask.id)
     }
   }
 }
