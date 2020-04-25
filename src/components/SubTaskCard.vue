@@ -26,7 +26,7 @@
       <router-link
         :to="{
           name: 'subtask-remove',
-          params: { id: subtask.id }
+          params: { id: subtask.id, task_id: subtask.task_id }
         }"
       >
         <button

@@ -68,7 +68,7 @@ const routes = [
     props: true
   },
   {
-    path: '/subtasks/remove/:task_id',
+    path: '/subtasks/remove/:task_id/:id',
     name: 'subtask-remove',
     component: SubTaskRemove,
     props: true

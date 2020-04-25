@@ -58,10 +58,7 @@ export default {
     addSubTask() {
       TaskService.addSubTask(this.subtask)
         .then(response => {
-          this.$router.push({
-            name: 'task-show',
-            params: { id: this.subtask.task_id }
-          })
+          this.$router.push({ name: 'task-show', params: { id: this.task_id } })
           ///  console.log('вотттт', response.data['0'][0].tasks)
           // let serverSubtasks = response.data['0'][0].tasks
 
