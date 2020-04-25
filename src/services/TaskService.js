@@ -42,17 +42,17 @@ export default {
     return apiClient.get(`/list`) //+
   },
   getTasksByStatus(status) {
-    return apiClient.get('/tasks/?status=' + status)
+    return apiClient.get('/tasks/?status=' + status) //для фильтра
   },
   getTask(id) {
     //console.log(id)
     return apiClient.get('/list/' + id) //поменяла
   },
   updateTask(id) {
-    return apiClient.put('/list/' + id, task)
+    return apiClient.post('/list/' + id, task)
   },
   updateSubTask(subtask) {
-    return apiClient.put('/subtasks/' + subtask.id, subtask)
+    return apiClient.post('/task/update/' + id, subtask)
   },
   completedSubTask(subtask) {
     return apiClient.put('/subtasks/' + subtask.id, subtask)
@@ -65,7 +65,13 @@ export default {
     return apiClientPost.post(`/list`, bodyFormData)
   },
   addSubTask(subtask) {
-    return apiClient.post('/subtasks/', subtask)
+    var bodyFormData = new FormData()
+    bodyFormData.set('name', subtask.name)
+    bodyFormData.set('listt_id', subtask.task_id)
+    bodyFormData.set('description', subtask.description)
+    bodyFormData.set('urgency', subtask.status)
+    bodyFormData.set('name', subtask.name)
+    return apiClient.post('/task', bodyFormData) //??
   },
   deleteTask(id) {
     return apiClient.delete('/list/' + id)

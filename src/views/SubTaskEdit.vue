@@ -4,7 +4,7 @@
       <h1 class="task-heading__green">Редактирование подзадачи</h1>
     </div>
     <span class="subtask-text">Наименование задачи</span>
-    <h2 class="title task-heading__green-border-none">{{ task_name }}</h2>
+    <h2 class="title task-heading__green-border-none">{{ taskname }}</h2>
     <span class="subtask-text">Наименование подзадачи</span>
     <label class="task-label" id="name"></label>
     <input
@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       subtask: {},
-      task_name: ''
+      taskname: ''
     }
   },
   methods: {
@@ -58,8 +58,8 @@ export default {
 
       TaskService.updateSubTask(this.subtask)
         .then(response => {
-          this.$router.push({ name: 'task-show', params: { id: this.task_id } })
-          console.log(response.data) // For now, logs out the response
+          //  this.$router.push({ name: 'task-show', params: { id: this.task_id } })
+          console.log(response.data)
         })
         .catch(error => {
           console.log('There was an error:', error.response) // Logs out the error
@@ -67,16 +67,25 @@ export default {
     }
   },
   created() {
-    TaskService.getSubtask(this.id)
+    TaskService.getTask(this.id)
       .then(response => {
-        this.subtask = response.data
-        TaskService.getTask(this.subtask.task_id)
-          .then(response => {
-            this.task_name = response.data.name
-          })
-          .catch(errors => {
-            console.log('ERROR: ' + errors.response)
-          })
+        //this.task = response.data
+        this.taskname = response.data['0'][0].name
+        console.log(response.data['0'][0].tasks)
+        let serverSubtasks = response.data['0'][0].tasks
+        serverSubtasks.forEach(serverSubtask => {
+          let subtask = {
+            task_id: serverSubtask.id,
+            name: serverSubtask.name,
+            description: serverSubtask.description,
+            status: serverSubtask.mark == 1 ? true : false,
+            importance: serverSubtask.urgency == 1 ? true : false,
+            created_date: serverSubtask.created_at,
+            edit_date: serverSubtask.updated_at
+          }
+          this.subtasks.push(subtask)
+        })
+        console.log(response.data['0'][0].tasks)
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)

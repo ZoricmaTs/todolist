@@ -12,7 +12,6 @@
       v-model="subtask.name"
       required
     />
-
     <label class="description__label" id="description">Краткое описание</label>
     <textarea
       class="description__textarea"
@@ -20,7 +19,6 @@
       required="required"
       v-model="subtask.description"
     ></textarea>
-
     <span>Дата создания подзадачи: {{ subtask.created_date }}</span>
     <label class="check option-check">
       <input class="check__input" type="checkbox" v-model="subtask.importance" />
@@ -47,8 +45,8 @@ export default {
       subtask: {
         task_id: this.task_id,
         name: '',
-        created_date: '03.11.2020 10:25',
-        edit_date: '04.11.2020 10:25',
+        created_date: '',
+        edit_date: '',
         status: false,
         importance: false,
         description: ''
@@ -60,8 +58,14 @@ export default {
     addSubTask() {
       TaskService.addSubTask(this.subtask)
         .then(response => {
-          this.$router.push({ name: 'task-show', params: { id: this.task_id } })
-          console.log(response.data)
+          this.$router.push({
+            name: 'task-show',
+            params: { id: this.subtask.task_id }
+          })
+          ///  console.log('вотттт', response.data['0'][0].tasks)
+          // let serverSubtasks = response.data['0'][0].tasks
+
+          //  listt_id
 
           // For now, logs out the response
         })

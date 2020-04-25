@@ -58,16 +58,25 @@ export default {
     }
   },
   created() {
-    TaskService.getSubtask(this.id)
+    TaskService.getTask(this.id)
       .then(response => {
-        this.subtask = response.data
-        TaskService.getTask(this.subtask.task_id)
-          .then(response => {
-            this.task_name = response.data.name
-          })
-          .catch(errors => {
-            console.log('ERROR: ' + errors.response)
-          })
+        //this.task = response.data
+        this.taskname = response.data['0'][0].name
+        console.log(response.data['0'][0].tasks)
+        let serverSubtasks = response.data['0'][0].tasks
+        serverSubtasks.forEach(serverSubtask => {
+          let subtask = {
+            task_id: serverSubtask.id,
+            name: serverSubtask.name,
+            description: serverSubtask.description,
+            status: serverSubtask.mark == 1 ? true : false,
+            importance: serverSubtask.urgency == 1 ? true : false,
+            created_date: serverSubtask.created_at,
+            edit_date: serverSubtask.updated_at
+          }
+          this.subtasks.push(subtask)
+        })
+        console.log(response.data['0'][0].tasks)
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)
