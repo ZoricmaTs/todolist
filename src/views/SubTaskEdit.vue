@@ -54,12 +54,13 @@ export default {
   },
   methods: {
     updateSubTask() {
-      // alert(this.task)
-
       TaskService.updateSubTask(this.subtask)
         .then(response => {
-          //  this.$router.push({ name: 'task-show', params: { id: this.task_id } })
-          console.log(response.data)
+          this.$router.push({
+            name: 'task-show',
+            params: { id: this.subtask.task_id }
+          })
+          // console.log(response.data)
         })
         .catch(error => {
           console.log('There was an error:', error.response) // Logs out the error
@@ -67,25 +68,26 @@ export default {
     }
   },
   created() {
-    TaskService.getTask(this.id)
+    TaskService.getSubtask(this.id)
       .then(response => {
-        //this.task = response.data
-        this.taskname = response.data['0'][0].name
-        console.log(response.data['0'][0].tasks)
-        let serverSubtasks = response.data['0'][0].tasks
-        serverSubtasks.forEach(serverSubtask => {
-          let subtask = {
-            task_id: serverSubtask.id,
-            name: serverSubtask.name,
-            description: serverSubtask.description,
-            status: serverSubtask.mark == 1 ? true : false,
-            importance: serverSubtask.urgency == 1 ? true : false,
-            created_date: serverSubtask.created_at,
-            edit_date: serverSubtask.updated_at
-          }
-          this.subtasks.push(subtask)
-        })
-        console.log(response.data['0'][0].tasks)
+        var serverSubtask = response.data['0']
+        this.subtask = {
+          id: serverSubtask.id,
+          task_id: serverSubtask.listt_id,
+          name: serverSubtask.name,
+          description: serverSubtask.description,
+          importance: serverSubtask.urgency == 1 ? true : false,
+          created_date: serverSubtask.created_at,
+          edit_date: serverSubtask.updated_at
+        }
+
+        TaskService.getTask(serverSubtask.listt_id)
+          .then(response => {
+            this.taskname = response.data['0'][0].name
+          })
+          .catch(errors => {
+            console.log('ERROR: ' + errors.response)
+          })
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)

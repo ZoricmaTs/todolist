@@ -52,7 +52,14 @@ export default {
     return apiClient.post('/list/' + id, task)
   },
   updateSubTask(subtask) {
-    return apiClient.post('/task/update/' + id, subtask)
+    var bodyFormData = new FormData()
+    bodyFormData.set('id', subtask.id)
+    bodyFormData.set('name', subtask.name)
+    bodyFormData.set('listt_id', subtask.task_id)
+    bodyFormData.set('description', subtask.description)
+    bodyFormData.set('urgency', subtask.importance == true ? 1 : 0)
+    bodyFormData.set('name', subtask.name)
+    return apiClient.post('/task/update', bodyFormData)
   },
   completedSubTask(id) {
     return apiClient.put('/task/' + id)
@@ -83,6 +90,6 @@ export default {
     return apiClient.get('/subtasks/?task_id=' + task_id)
   },
   getSubtask(id) {
-    return apiClient.get('/subtasks/' + id)
+    return apiClient.get('/task/' + id)
   }
 }
