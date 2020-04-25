@@ -26,7 +26,7 @@ export default {
   props: ['id'],
   data() {
     return {
-      task: {}
+      taskname: ''
     }
   },
   methods: {
@@ -34,7 +34,7 @@ export default {
       //добавить задачу
       // alert(this.task)
 
-      TaskService.updateTask(this.task)
+      TaskService.updateTask(this.id)
         .then(response => {
           console.log(response.data) // For now, logs out the response
         })
@@ -46,7 +46,7 @@ export default {
   created() {
     TaskService.getTask(this.id)
       .then(response => {
-        this.task = response.data
+        this.taskname = response.data['0'][0].name
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)

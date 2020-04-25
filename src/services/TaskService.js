@@ -25,13 +25,13 @@ const credential = `token=${localStorage.token}`
 
 export default {
   login(email, password) {
-    var bodyFormData = new FormData()
+    var bodyFormData = new FormData() //+
     bodyFormData.set('email', email)
     bodyFormData.set('password', password)
     return apiClientPost.post(`/login`, bodyFormData)
   },
   register(name, email, password, password_confirmation) {
-    var bodyFormData = new FormData()
+    var bodyFormData = new FormData() //+
     bodyFormData.set('name', name)
     bodyFormData.set('email', email)
     bodyFormData.set('password', password)
@@ -39,16 +39,17 @@ export default {
     return apiClientPost.post(`/user`, bodyFormData)
   },
   getTasks() {
-    return apiClient.get(`/list`)
+    return apiClient.get(`/list`) //+
   },
   getTasksByStatus(status) {
     return apiClient.get('/tasks/?status=' + status)
   },
   getTask(id) {
-    return apiClient.get('/tasks/' + id)
+    //console.log(id)
+    return apiClient.get('/list/' + id) //поменяла
   },
-  updateTask(task) {
-    return apiClient.put('/tasks/' + task.id, task)
+  updateTask(id) {
+    return apiClient.put('/list/' + id, task)
   },
   updateSubTask(subtask) {
     return apiClient.put('/subtasks/' + subtask.id, subtask)
@@ -57,6 +58,7 @@ export default {
     return apiClient.put('/subtasks/' + subtask.id, subtask)
   },
   addTask(task) {
+    //+
     var bodyFormData = new FormData()
     bodyFormData.set('name', task.name)
     bodyFormData.set('description', 'zzz')
@@ -66,7 +68,6 @@ export default {
     return apiClient.post('/subtasks/', subtask)
   },
   deleteTask(id) {
-    console.log(id)
     return apiClient.delete('/list/' + id)
   },
   deleteSubTask(subtask) {

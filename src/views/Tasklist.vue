@@ -11,11 +11,7 @@
 
       <select class="filter" v-model="selectedFilter" @change="changeFilter">
         <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
-        <option v-for="filter in filters" :key="filter.id" :value="filter.id">
-          {{
-          filter.name
-          }}
-        </option>
+        <option v-for="filter in filters" :key="filter.id" :value="filter.id">{{ filter.name }}</option>
       </select>
     </div>
 
@@ -44,7 +40,7 @@ export default {
   },
   methods: {
     updateTaskList(taskList) {
-      let tasks = []
+      let tasks = [] //++
       taskList.forEach(elem => {
         let status = 0
         if (elem.success == 0 && elem.every == 0) {
@@ -91,9 +87,10 @@ export default {
     }
   },
   created() {
-    TaskService.getTasks()
+    TaskService.getTasks() //++
       .then(response => {
-        this.tasks = this.updateTaskList(response.data)
+        console.log(response.data['0'])
+        this.tasks = this.updateTaskList(response.data['0'])
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)

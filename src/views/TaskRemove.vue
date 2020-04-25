@@ -29,7 +29,7 @@ export default {
       TaskService.deleteTask(this.id)
         .then(response => {
           this.$router.push({ name: 'tasks' })
-          console.log(response.data) // For now, logs out the response
+          console.log('задача', response.data) // For now, logs out the response
         })
         .catch(error => {
           console.log('There was an error:', error.response) // Logs out the error
@@ -39,7 +39,8 @@ export default {
   created() {
     TaskService.getTask(this.id)
       .then(response => {
-        this.taskname = response.data.name
+        console.log(response.data)
+        this.taskname = response.data['0'][0].name
         // this.task = response.data
       })
       .catch(errors => {
