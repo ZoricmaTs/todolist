@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Tasklist from '@/views/Tasklist.vue'
 import TaskShow from '@/views/TaskShow.vue'
 import TaskCreate from '@/views/TaskCreate.vue'
@@ -8,14 +9,23 @@ import TaskRemove from '@/views/TaskRemove.vue'
 import SubTaskEdit from '@/views/SubTaskEdit.vue'
 import SubTaskCreate from '@/views/SubTaskCreate.vue'
 import SubTaskRemove from '@/views/SubTaskRemove.vue'
-
+import HomePage from '@/views/HomePage.vue'
+import Registration from '@/views/Registration.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: Tasklist
+    component: HomePage,
+    meta: {
+      reload: true
+    }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Registration
   },
   {
     path: '/tasks',
@@ -58,7 +68,7 @@ const routes = [
     props: true
   },
   {
-    path: '/subtasks/remove/:task_id',
+    path: '/subtasks/remove/:task_id/:id',
     name: 'subtask-remove',
     component: SubTaskRemove,
     props: true

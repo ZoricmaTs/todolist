@@ -16,8 +16,8 @@
     <div class="buttons-container">
       <router-link class :to="{ name: 'tasks' }">
         <button type="button" class="btn btn-grey">Отмена</button>
-        <button type="button" class="btn btn-green" @click="addTask">Готово</button>
       </router-link>
+      <button type="button" class="btn btn-green" @click="addTask">Готово</button>
     </div>
   </div>
 </template>
@@ -40,10 +40,18 @@ export default {
 
       TaskService.addTask(this.task)
         .then(response => {
-          console.log(response.data) // For now, logs out the response
+          this.$router.push({ name: 'tasks' })
+          alert('Задача успешно добавлена')
+          console.log(response.data)
         })
         .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
+          if (error.response.status == 401) {
+            alert('Авторизуйтесь пожалуйста')
+            localStorage.token = ''
+            this.$router.push({ name: 'home' })
+          } else {
+            console.log('Произошла ошибка: ' + error.response.data)
+          }
         })
     }
   },

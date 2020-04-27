@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": 1,
-      "name": "Сходить в магазин",
+      "name": "запастись на случай зомби-апокалипсиса!",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "status": 0,
@@ -31,6 +31,38 @@
       "edit_date": "04.11.2020 10:25",
       "status": 2,
       "statusname": "невыполненная"
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "Произвести замеры напряжения!",
+      "id": 7
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "Внести изменения в схему",
+      "id": 8
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "экзамен по электробезопасности",
+      "id": 12
+    },
+    {
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": 0,
+      "statusname": "нет подзадач",
+      "name": "купить слона",
+      "id": 13
     }
   ],
   "subtasks": [
@@ -53,100 +85,14 @@
       "id": 3
     },
     {
-      "task_id": "2",
-      "name": "eeeee",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": true,
-      "importance": false,
-      "id": 4
-    },
-    {
-      "task_id": 2,
-      "name": "rtttt",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": true,
-      "importance": false,
-      "id": 5
-    },
-    {
-      "task_id": 2,
-      "name": "llll",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "id": 6
-    },
-    {
-      "task_id": 2,
-      "name": "kuiouoiu",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "id": 7
-    },
-    {
-      "task_id": 2,
-      "name": "hhhhh",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "id": 8
-    },
-    {
-      "task_id": 2,
-      "name": "hjgjhgjh",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "id": 9
-    },
-    {
-      "task_id": 2,
-      "name": "купить цветы",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "importance": true,
-      "id": 10
-    },
-    {
-      "task_id": 2,
-      "name": "eeeeeeeeeeeeeeeeeeeeeeeeeeee eee",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "importance": false,
-      "id": 11,
-      "status": true
-    },
-    {
-      "task_id": 2,
-      "name": "dfg;",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "importance": false,
-      "id": 12
-    },
-    {
-      "task_id": 2,
-      "name": "rerere",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "id": 13
-    },
-    {
       "task_id": 1,
-      "name": "Купить фруктов",
+      "name": "!!Купить слона!",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "importance": true,
-      "id": 14
+      "id": 14,
+      "status": true,
+      "description": "такие вот дела"
     },
     {
       "status": true,
@@ -158,16 +104,7 @@
     },
     {
       "task_id": 3,
-      "name": "sdfghjk",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "importance": true,
-      "id": 17,
-      "status": true
-    },
-    {
-      "task_id": 3,
-      "name": "xfgvbnm,., ",
+      "name": "видеорегистратор",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "status": true,
@@ -176,72 +113,382 @@
     },
     {
       "task_id": 4,
-      "name": "смитьтимсчяс",
+      "name": "тапки",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
-      "status": false,
+      "status": true,
       "importance": true,
       "id": 19
     },
     {
-      "task_id": 1,
-      "name": "sdfgh",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": true,
-      "importance": true,
-      "description": "",
-      "id": 20
-    },
-    {
-      "task_id": 1,
-      "name": "hjk",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "description": "",
-      "id": 21
-    },
-    {
-      "task_id": 10,
-      "name": "gf",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "description": "",
-      "id": 22
-    },
-    {
-      "task_id": 10,
-      "name": "gfhgjhn",
-      "created_date": "03.11.2020 10:25",
-      "edit_date": "04.11.2020 10:25",
-      "status": false,
-      "importance": false,
-      "description": "",
-      "id": 23
-    },
-    {
-      "task_id": 2,
-      "name": "апролорпавыфв",
+      "task_id": 6,
+      "name": "проверить наличие связи в дискорде",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
       "status": true,
       "importance": false,
       "description": "",
-      "id": 24
+      "id": 26
+    },
+    {
+      "task_id": 7,
+      "name": "машина для выезда на замеры",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "",
+      "id": 28
+    },
+    {
+      "task_id": 6,
+      "name": "!!",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": true,
+      "importance": false,
+      "description": "",
+      "id": 29
+    },
+    {
+      "task_id": 8,
+      "name": "Выполнить проверку техприсоединения",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "выезд на место 14.03.19",
+      "id": 31
+    },
+    {
+      "task_id": 8,
+      "name": "заявка на подключение",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": true,
+      "importance": false,
+      "description": "ввод в эксплуатацию ",
+      "id": 32
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 41
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 42
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 43
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 44
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 45
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 46
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 47
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 48
+    },
+    {
+      "task_id": 24,
+      "name": "подзадача11",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "аыв",
+      "id": 49
+    },
+    {
+      "task_id": 10,
+      "name": "пнуть кота",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "",
+      "id": 52
+    },
+    {
+      "task_id": 15,
+      "name": "задача1",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "авпарь",
+      "id": 53
     },
     {
       "task_id": 2,
-      "name": "выапро",
+      "name": "купить корову",
       "created_date": "03.11.2020 10:25",
       "edit_date": "04.11.2020 10:25",
+      "status": false,
       "importance": true,
       "description": "",
-      "id": 25,
-      "status": false
+      "id": 54
+    },
+    {
+      "task_id": 2,
+      "name": "погладить кота",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": true,
+      "importance": true,
+      "description": "по часовой стрелке",
+      "id": 55
+    },
+    {
+      "task_id": 1,
+      "name": "дюжину новых и сладких калош",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "",
+      "id": 56
+    },
+    {
+      "task_id": 3,
+      "name": "разобраться в моделях и функционале",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "",
+      "id": 57
+    },
+    {
+      "task_id": 1,
+      "name": "бейсбольная бита",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "",
+      "id": 58
+    },
+    {
+      "task_id": 1,
+      "name": "начать постройку бункера",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": true,
+      "importance": false,
+      "description": "",
+      "id": 59
+    },
+    {
+      "task_id": 4,
+      "name": "полить цветы",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "",
+      "id": 61
+    },
+    {
+      "task_id": 1,
+      "name": "гречу",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "",
+      "id": 62
+    },
+    {
+      "task_id": 7,
+      "name": "распечатать списки ТП с адресами",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "Списки с ТП нуждающихся в технологическом осмотре. (все)",
+      "id": 63
+    },
+    {
+      "task_id": 7,
+      "name": "варежки",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "потому что зима.",
+      "id": 64
+    },
+    {
+      "task_id": 7,
+      "name": "взять перекус",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "",
+      "id": 65
+    },
+    {
+      "task_id": 8,
+      "name": "оформить жпп",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "подписать у начальника",
+      "id": 66
+    },
+    {
+      "task_id": 11,
+      "name": "посчитать опоры",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": true,
+      "importance": false,
+      "description": "оформить дефектную ведомость",
+      "id": 67
+    },
+    {
+      "task_id": 11,
+      "name": "ТО ТП 208",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "Произвести отключение. выкатить тележку. Протереть шины и трансформатор.",
+      "id": 68
+    },
+    {
+      "task_id": 11,
+      "name": "ветошь для ТО",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "",
+      "id": 69
+    },
+    {
+      "task_id": 11,
+      "name": "заменить рубильник №3 на 1с.ш.  ТП 208",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "сдать старый на склад.",
+      "id": 70
+    },
+    {
+      "task_id": 1,
+      "name": "книжку",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "",
+      "id": 71
+    },
+    {
+      "task_id": 3,
+      "name": "купить нормальный видеорегистратор",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "",
+      "id": 72
+    },
+    {
+      "task_id": 12,
+      "name": "прочитать изменения в законодательстве",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "",
+      "id": 73
+    },
+    {
+      "task_id": 12,
+      "name": "Правила технической эксплуатации электроустановок потребителей",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": false,
+      "description": "этапы ввода в эксплуатацию, техническая документация",
+      "id": 76
+    },
+    {
+      "task_id": 13,
+      "name": "2",
+      "created_date": "03.11.2020 10:25",
+      "edit_date": "04.11.2020 10:25",
+      "status": false,
+      "importance": true,
+      "description": "",
+      "id": 78
     }
   ]
 }

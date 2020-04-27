@@ -4,7 +4,7 @@
       <h1 class="task-heading__green">Редактирование подзадачи</h1>
     </div>
     <span class="subtask-text">Наименование задачи</span>
-    <h2 class="title task-heading__green-border-none">{{ task_name }}</h2>
+    <h2 class="title task-heading__green-border-none">{{ taskname }}</h2>
     <span class="subtask-text">Наименование подзадачи</span>
     <label class="task-label" id="name"></label>
     <input
@@ -16,7 +16,12 @@
       required
     />
     <label class="description__label" id="description">Краткое описание</label>
-    <textarea class="description__textarea" for="description" required="required"></textarea>
+    <textarea
+      class="description__textarea"
+      for="description"
+      required="required"
+      v-model="subtask.description"
+    ></textarea>
 
     <span class="task-label" id="created_date">Дата создания подзадачи: {{ subtask.created_date }}</span>
     <label class="check option-check">
@@ -29,10 +34,9 @@
 
     <div class="buttons-container">
       <router-link :to="{ name: 'task-show', params: { id: subtask.task_id } }">
-        <!-- <router-link class :to="{ name: 'task-show' }">-->
         <button type="button" class="btn btn-grey">Отмена</button>
-        <button type="button" class="btn btn-green" @click="updateSubTask">Готово</button>
       </router-link>
+      <button type="button" class="btn btn-green" @click="updateSubTask">Готово</button>
     </div>
   </div>
 </template>
@@ -44,36 +48,67 @@ export default {
   data() {
     return {
       subtask: {},
-      task_name: ''
+      taskname: ''
     }
   },
   methods: {
     updateSubTask() {
-      // alert(this.task)
-
       TaskService.updateSubTask(this.subtask)
         .then(response => {
-          console.log(response.data) // For now, logs out the response
+          alert('Подадача успешно обновлена')
+          this.$router.push({
+            name: 'task-show',
+            params: { id: this.subtask.task_id }
+          })
+          // console.log(response.data)
         })
         .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
+          if (error.response.status == 401) {
+            alert('Авторизуйтесь пожалуйста')
+            localStorage.token = ''
+            this.$router.push({ name: 'home' })
+          } else {
+            console.log('Произошла ошибка: ' + error.response.data)
+          }
         })
     }
   },
   created() {
     TaskService.getSubtask(this.id)
       .then(response => {
-        this.subtask = response.data
-        TaskService.getTask(this.subtask.task_id)
+        var serverSubtask = response.data['0']
+        this.subtask = {
+          id: serverSubtask.id,
+          task_id: serverSubtask.listt_id,
+          name: serverSubtask.name,
+          description: serverSubtask.description,
+          importance: serverSubtask.urgency == 1 ? true : false,
+          created_date: serverSubtask.created_at,
+          edit_date: serverSubtask.updated_at
+        }
+
+        TaskService.getTask(serverSubtask.listt_id)
           .then(response => {
-            this.task_name = response.data.name
+            this.taskname = response.data['0'][0].name
           })
-          .catch(errors => {
-            console.log('ERROR: ' + errors.response)
+          .catch(error => {
+            if (error.response.status == 401) {
+              alert('Авторизуйтесь пожалуйста')
+              localStorage.token = ''
+              this.$router.push({ name: 'home' })
+            } else {
+              console.log('Произошла ошибка: ' + error.response.data)
+            }
           })
       })
-      .catch(errors => {
-        console.log('ERROR: ' + errors.response)
+      .catch(error => {
+        if (error.response.status == 401) {
+          alert('Авторизуйтесь пожалуйста')
+          localStorage.token = ''
+          this.$router.push({ name: 'home' })
+        } else {
+          console.log('Произошла ошибка: ' + error.response.data)
+        }
       })
   }
 }

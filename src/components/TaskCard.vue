@@ -30,7 +30,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss" scoped>
 .completed {
   background-color: #6ae356;
   border: 1px solid #4e9243;
@@ -48,12 +48,13 @@ export default {
 }
 .btn {
   border: none;
-  background-color: transparent;
+
   outline: none;
 }
 .btn-edit,
 .btn-remove {
   height: 30px;
+  background-color: transparent;
   border: 1px solid #4e9243;
   border-radius: 3px;
   cursor: pointer;

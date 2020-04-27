@@ -15,7 +15,9 @@
     <div class="buttons-container">
       <router-link class :to="{ name: 'tasks' }">
         <button type="button" class="btn btn-grey">Отмена</button>
-        <button type="button" class="btn btn-green" @click="updateTask">Готово</button>
+        <button type="button" class="btn btn-green" @click="updateTask">
+          Готово
+        </button>
       </router-link>
     </div>
   </div>
@@ -26,29 +28,50 @@ export default {
   props: ['id'],
   data() {
     return {
+      taskname: '',
       task: {}
     }
   },
   methods: {
     updateTask() {
-      // alert(this.task)
-
       TaskService.updateTask(this.task)
         .then(response => {
-          console.log(response.data) // For now, logs out the response
+          if (response.data['success'] == false) {
+            alert('Произошла ошибка')
+          } else {
+            alert('Задача успешно обновлена')
+          }
+          console.log(response.data)
         })
         .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
+          if (error.response.status == 401) {
+            alert('Авторизуйтесь пожалуйста')
+            localStorage.token = ''
+            this.$router.push({ name: 'home' })
+          } else {
+            console.log('Произошла ошибка: ' + error.response.data)
+          }
         })
     }
   },
   created() {
     TaskService.getTask(this.id)
       .then(response => {
-        this.task = response.data
+        this.taskname = response.data['0'][0].name
+        const serverTask = response.data['0'][0]
+        this.task = {
+          id: serverTask.id,
+          name: serverTask.name
+        }
       })
-      .catch(errors => {
-        console.log('ERROR: ' + errors.response)
+      .catch(error => {
+        if (error.response.status == 401) {
+          alert('Авторизуйтесь пожалуйста')
+          localStorage.token = ''
+          this.$router.push({ name: 'home' })
+        } else {
+          console.log('Произошла ошибка: ' + error.response.data)
+        }
       })
   }
 }

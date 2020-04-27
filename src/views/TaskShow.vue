@@ -3,8 +3,8 @@
     <h1 class="tasklist-heading">Просмотр задачи</h1>
     <div class="task-create">
       <div class="addsubtask-block">
-        <h2 class="title task-heading__green addsubtask-block">{{ task.name }}</h2>
-        <router-link :to="{ name: 'subtask-create', params: { task_id: task.id } }">
+        <h2 class="title task-heading__green addsubtask-block">{{ taskname }}</h2>
+        <router-link :to="{ name: 'subtask-create', params: { task_id: this.id } }">
           <button
             type="button"
             class="btn material-icons material-icons__color_green md-36 btn-add"
@@ -18,6 +18,9 @@
         :key="subtask.id"
         :subtask="subtask"
       ></SubTaskCard>
+      <router-link to="/">
+        <button type="button" class="btn btn-grey btn-return">Назад</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -31,26 +34,50 @@ export default {
   props: ['id'],
   data() {
     return {
-      task: {},
-      subtasks: []
+      subtasks: [],
+      taskname: ''
     }
   },
   created() {
     TaskService.getTask(this.id)
       .then(response => {
-        this.task = response.data
+        //this.task = response.data
+        this.taskname = response.data['0'][0].name
+        console.log(response.data['0'][0].tasks)
+        let serverSubtasks = response.data['0'][0].tasks
+        serverSubtasks.forEach(serverSubtask => {
+          let subtask = {
+            id: serverSubtask.id,
+            task_id: serverSubtask.listt_id,
+            name: serverSubtask.name,
+            description: serverSubtask.description,
+            status: serverSubtask.mark == 1 ? true : false,
+            importance: serverSubtask.urgency == 1 ? true : false,
+            created_date: serverSubtask.created_at,
+            edit_date: serverSubtask.updated_at
+          }
+          this.subtasks.push(subtask)
+        })
+        console.log(response.data['0'][0].tasks)
       })
-      .catch(errors => {
-        console.log('ERROR: ' + errors.response)
+      .catch(error => {
+        if (error.response.status == 401) {
+          alert('Авторизуйтесь пожалуйста')
+          localStorage.token = ''
+          this.$router.push({ name: 'home' })
+        } else {
+          console.log('Произошла ошибка: ' + error.response.data)
+        }
       })
 
-    TaskService.getSubTasks(this.id)
+    /*TaskService.getSubTasks(this.id)
       .then(response => {
+        console.log(response.data['0'][0].name)
         this.subtasks = response.data
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)
-      })
+      })*/
   }
 }
 </script>
@@ -66,6 +93,9 @@ export default {
 }
 .btn-add {
   cursor: pointer;
+}
+.btn-return {
+  align-self: flex-start;
 }
 .material-icons__color_red {
   color: #eb5757;

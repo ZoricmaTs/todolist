@@ -3,14 +3,14 @@
     <div class="task-header">
       <h1 class="task-heading__green">Удаление задачи</h1>
     </div>
-    <h2 class="task-heading__alarm">Вы точно хотите удалить “Задача {{ task.name }}”?</h2>
+    <h2 class="task-heading__alarm">Вы точно хотите удалить “Задача {{ taskname }}”?</h2>
     <span class="task-heading__alarm-text">Внимание!</span>
     <span class="task-heading__alarm-text">Все подзадачи данного списка будут удалены.</span>
     <div class="buttons-container">
       <router-link class :to="{ name: 'tasks' }">
         <button type="button" class="btn btn-grey">Отмена</button>
-        <button type="button" class="btn btn-green" @click="deleteTask">Удалить</button>
       </router-link>
+      <button type="button" class="btn btn-green" @click="deleteTask">Удалить</button>
     </div>
   </div>
 </template>
@@ -21,29 +21,43 @@ export default {
   props: ['id'],
   data() {
     return {
-      task: {}
+      taskname: ''
     }
   },
   methods: {
     deleteTask() {
-      // alert(this.task)
-
-      TaskService.deleteTask(this.task)
+      TaskService.deleteTask(this.id)
         .then(response => {
-          console.log(response.data) // For now, logs out the response
+          alert('Задача успешно удалена')
+          this.$router.push({ name: 'tasks' })
+          console.log('задача', response.data)
         })
         .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
+          if (error.response.status == 401) {
+            alert('Авторизуйтесь пожалуйста')
+            localStorage.token = ''
+            this.$router.push({ name: 'home' })
+          } else {
+            console.log('Произошла ошибка: ' + error.response.data)
+          }
         })
     }
   },
   created() {
     TaskService.getTask(this.id)
       .then(response => {
-        this.task = response.data
+        console.log(response.data)
+        this.taskname = response.data['0'][0].name
+        // this.task = response.data
       })
-      .catch(errors => {
-        console.log('ERROR: ' + errors.response)
+      .catch(error => {
+        if (error.response.status == 401) {
+          alert('Авторизуйтесь пожалуйста')
+          localStorage.token = ''
+          this.$router.push({ name: 'home' })
+        } else {
+          console.log('Произошла ошибка: ' + error.response.data)
+        }
       })
   }
 }

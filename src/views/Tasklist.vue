@@ -5,17 +5,21 @@
       <router-link class :to="{ name: 'task-create' }">
         <button
           type="button"
-          class="btn btn-add-circle material-icons material-icons__color_green md-36"
+          class="btn-add-circle material-icons material-icons__color_green md-36"
         >add_circle</button>
       </router-link>
 
       <select class="filter" v-model="selectedFilter" @change="changeFilter">
         <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
-        <option v-for="filter in filters" :key="filter.id" :value="filter.id">{{ filter.name }}</option>
+        <option v-for="filter in filters" :key="filter.id" :value="filter.id">
+          {{
+          filter.name
+          }}
+        </option>
       </select>
     </div>
 
-    <TaskCard class="task" v-for="task in tasks" :key="task.id" :task="task"></TaskCard>
+    <TaskCard class="task" v-for="task in filteredTasks" :key="task.id" :task="task"></TaskCard>
   </div>
 </template>
 
@@ -30,7 +34,8 @@ export default {
   data() {
     return {
       tasks: [],
-      selectedFilter: 2,
+      filteredTasks: [],
+      selectedFilter: localStorage.active_filter,
       filters: [
         { id: 2, name: 'Невыполненные' },
         { id: 1, name: 'Выполненные' },
@@ -39,36 +44,88 @@ export default {
     }
   },
   methods: {
+    updateTaskList(taskList) {
+      let tasks = [] //++
+      taskList.forEach(elem => {
+        let status = 0
+        if (elem.every == 0) {
+          status = 0
+        } else if (elem.success == elem.every) {
+          status = 1
+        } else {
+          status = 2
+        }
+        let task = {
+          id: elem.id,
+          name: elem.name,
+          created_date: elem.created_at,
+          edit_date: elem.updated_at,
+          status: status
+        }
+        tasks.push(task)
+      })
+      return tasks
+    },
     changeFilter() {
       console.log('changeFilter', this.selectedFilter)
 
-      if (this.selectedFilter == 0) {
-        ///все
-        TaskService.getTasks()
-          .then(response => {
-            this.tasks = response.data
-          })
-          .catch(errors => {
-            console.log('ERROR: ' + errors.response)
-          })
-      } else {
-        TaskService.getTasksByStatus(this.selectedFilter)
-          .then(response => {
-            this.tasks = response.data
-          })
-          .catch(error => {
-            console.log('There was an error:', error.response) // Logs out the error
-          })
+      switch (this.selectedFilter) {
+        case 0: {
+          //все
+          localStorage.active_filter = this.selectedFilter
+          this.filteredTasks = this.tasks
+          break
+        }
+        case 1: {
+          // выполненные
+          localStorage.active_filter = this.selectedFilter
+          this.filteredTasks = this.tasks.filter(task => task.status == 1)
+          break
+        }
+        case 2: {
+          // невыполненные
+          localStorage.active_filter = this.selectedFilter
+          this.filteredTasks = this.tasks.filter(task => task.status == 2)
+          break
+        }
       }
     }
   },
   created() {
-    TaskService.getTasksByStatus(2)
+    TaskService.getTasks() //++
       .then(response => {
-        this.tasks = response.data
+        console.log(response.data['0'])
+        this.tasks = this.updateTaskList(response.data['0'])
+
+        switch (localStorage.active_filter) {
+          case '0': {
+            //все
+            this.selectedFilter = 0
+            this.filteredTasks = this.tasks
+            break
+          }
+          case '1': {
+            // выполненные
+            this.selectedFilter = 1
+            this.filteredTasks = this.tasks.filter(task => task.status == 1)
+            break
+          }
+          case '2': {
+            // невыполненные
+            this.selectedFilter = 2
+            this.filteredTasks = this.tasks.filter(task => task.status == 2)
+            break
+          }
+        }
       })
-      .catch(errors => {
-        console.log('ERROR: ' + errors.response)
+      .catch(error => {
+        if (error.response.status == 401) {
+          alert('Авторизуйтесь пожалуйста')
+          localStorage.token = ''
+          this.$router.push({ name: 'home' })
+        } else {
+          console.log('Произошла ошибка: ' + error.response.data)
+        }
       })
   }
 }
@@ -77,7 +134,7 @@ export default {
 <style lang="scss">
 body {
   background: url(../assets/tasklistbackground.jpg) no-repeat;
-  background-size: 100% auto;
+  background-size: auto auto;
 }
 .container {
   display: flex;
@@ -106,9 +163,10 @@ body {
   font-weight: normal;
   margin-top: 0;
   font-size: 14px;
-  width: 93px;
+  width: 155px;
   height: 40px;
   padding-right: 20px;
+  padding-left: 5px;
   cursor: pointer;
   border: 1px solid #4e9243;
   box-sizing: border-box;

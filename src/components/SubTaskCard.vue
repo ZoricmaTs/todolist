@@ -26,7 +26,7 @@
       <router-link
         :to="{
           name: 'subtask-remove',
-          params: { id: subtask.id }
+          params: { id: subtask.id, task_id: subtask.task_id }
         }"
       >
         <button
@@ -46,7 +46,7 @@ export default {
   methods: {
     completedSubTask() {
       // this.subtask.status = newval
-      TaskService.completedSubTask(this.subtask)
+      TaskService.completedSubTask(this.subtask.id)
     }
   }
 }
