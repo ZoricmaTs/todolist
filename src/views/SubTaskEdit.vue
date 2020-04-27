@@ -34,7 +34,6 @@
 
     <div class="buttons-container">
       <router-link :to="{ name: 'task-show', params: { id: subtask.task_id } }">
-        <!-- <router-link class :to="{ name: 'task-show' }">-->
         <button type="button" class="btn btn-grey">Отмена</button>
       </router-link>
       <button type="button" class="btn btn-green" @click="updateSubTask">Готово</button>

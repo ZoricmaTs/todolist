@@ -48,8 +48,12 @@ export default {
     //console.log(id)
     return apiClient.get('/list/' + id) //поменяла
   },
-  updateTask(id) {
-    return apiClient.post('/list/' + id, task)
+  updateTask(task) {
+    var bodyFormData = new FormData()
+    bodyFormData.set('id', task.id)
+    bodyFormData.set('name', task.name)
+    bodyFormData.set('description', 'zzz')
+    return apiClient.post('/list/update', bodyFormData)
   },
   updateSubTask(subtask) {
     var bodyFormData = new FormData()

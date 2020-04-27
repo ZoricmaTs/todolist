@@ -26,20 +26,27 @@ export default {
   props: ['id'],
   data() {
     return {
-      taskname: ''
+      taskname: '',
+      task: {}
     }
   },
   methods: {
     updateTask() {
-      //добавить задачу
-      // alert(this.task)
-
-      TaskService.updateTask(this.id)
+      TaskService.updateTask(this.task)
         .then(response => {
+          if (response.data['success'] == false) {
+            alert('Произошла ошибка')
+          }
           console.log(response.data) // For now, logs out the response
         })
         .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
+          if (error.response.status == 401) {
+            alert('Авторизуйтесь пожалуйста')
+            localStorage.token = ''
+            this.$router.push({ name: 'home' })
+          } else {
+            console.log('Произошла ошибка: ' + error.response.data)
+          }
         })
     }
   },
@@ -47,9 +54,20 @@ export default {
     TaskService.getTask(this.id)
       .then(response => {
         this.taskname = response.data['0'][0].name
+        const serverTask = response.data['0'][0]
+        this.task = {
+          id: serverTask.id,
+          name: serverTask.name
+        }
       })
-      .catch(errors => {
-        console.log('ERROR: ' + errors.response)
+      .catch(error => {
+        if (error.response.status == 401) {
+          alert('Авторизуйтесь пожалуйста')
+          localStorage.token = ''
+          this.$router.push({ name: 'home' })
+        } else {
+          console.log('Произошла ошибка: ' + error.response.data)
+        }
       })
   }
 }
