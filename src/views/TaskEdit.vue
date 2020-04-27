@@ -15,7 +15,9 @@
     <div class="buttons-container">
       <router-link class :to="{ name: 'tasks' }">
         <button type="button" class="btn btn-grey">Отмена</button>
-        <button type="button" class="btn btn-green" @click="updateTask">Готово</button>
+        <button type="button" class="btn btn-green" @click="updateTask">
+          Готово
+        </button>
       </router-link>
     </div>
   </div>
@@ -36,8 +38,10 @@ export default {
         .then(response => {
           if (response.data['success'] == false) {
             alert('Произошла ошибка')
+          } else {
+            alert('Задача успешно обновлена')
           }
-          console.log(response.data) // For now, logs out the response
+          console.log(response.data)
         })
         .catch(error => {
           if (error.response.status == 401) {

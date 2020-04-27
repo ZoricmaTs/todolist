@@ -58,6 +58,7 @@ export default {
     addSubTask() {
       TaskService.addSubTask(this.subtask)
         .then(response => {
+          alert('Подадача успешно добавлена')
           this.$router.push({ name: 'task-show', params: { id: this.task_id } })
         })
         .catch(error => {

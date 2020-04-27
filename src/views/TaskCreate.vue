@@ -41,7 +41,8 @@ export default {
       TaskService.addTask(this.task)
         .then(response => {
           this.$router.push({ name: 'tasks' })
-          console.log(response.data) // For now, logs out the response
+          alert('Задача успешно добавлена')
+          console.log(response.data)
         })
         .catch(error => {
           if (error.response.status == 401) {

@@ -3,11 +3,9 @@
     <div class="task-header">
       <h1 class="task-heading__green">Удаление подзадачи</h1>
     </div>
-    <span class="task-heading__alarm">
-      Вы точно хотите удалить "{{ subtaskname }}" из списка “{{
-      taskname
-      }}”?
-    </span>
+    <span
+      class="task-heading__alarm"
+    >Вы точно хотите удалить "{{ subtaskname }}" из списка “{{ taskname }}”?</span>
 
     <div class="buttons-container">
       <router-link class :to="{ name: 'task-show', params: { id: this.task_id } }">
@@ -32,6 +30,7 @@ export default {
     deleteSubTask() {
       TaskService.deleteSubTask(this.id)
         .then(response => {
+          alert('Подадача успешно удалена')
           this.$router.push({
             name: 'task-show',
             params: { id: this.task_id }

@@ -55,6 +55,7 @@ export default {
     updateSubTask() {
       TaskService.updateSubTask(this.subtask)
         .then(response => {
+          alert('Подадача успешно обновлена')
           this.$router.push({
             name: 'task-show',
             params: { id: this.subtask.task_id }

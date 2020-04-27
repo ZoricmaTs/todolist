@@ -28,8 +28,9 @@ export default {
     deleteTask() {
       TaskService.deleteTask(this.id)
         .then(response => {
+          alert('Задача успешно удалена')
           this.$router.push({ name: 'tasks' })
-          console.log('задача', response.data) // For now, logs out the response
+          console.log('задача', response.data)
         })
         .catch(error => {
           if (error.response.status == 401) {
