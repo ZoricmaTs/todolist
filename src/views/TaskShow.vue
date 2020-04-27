@@ -64,6 +64,7 @@ export default {
         if (error.response.status == 401) {
           alert('Авторизуйтесь пожалуйста')
           localStorage.token = ''
+          localStorage.email = ''
           this.$router.push({ name: 'home' })
         } else {
           console.log('Произошла ошибка: ' + error.response.data)

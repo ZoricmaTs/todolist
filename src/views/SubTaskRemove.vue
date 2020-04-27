@@ -3,9 +3,11 @@
     <div class="task-header">
       <h1 class="task-heading__green">Удаление подзадачи</h1>
     </div>
-    <span
-      class="task-heading__alarm"
-    >Вы точно хотите удалить "{{ subtaskname }}" из списка “{{ taskname }}”?</span>
+    <span class="task-heading__alarm">
+      Вы точно хотите удалить "{{ subtaskname }}" из списка “{{
+      taskname
+      }}”?
+    </span>
 
     <div class="buttons-container">
       <router-link class :to="{ name: 'task-show', params: { id: this.task_id } }">
@@ -40,6 +42,7 @@ export default {
           if (error.response.status == 401) {
             alert('Авторизуйтесь пожалуйста')
             localStorage.token = ''
+            localStorage.email = ''
             this.$router.push({ name: 'home' })
           } else {
             console.log('Произошла ошибка: ' + error.response.data)

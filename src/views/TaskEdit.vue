@@ -15,9 +15,7 @@
     <div class="buttons-container">
       <router-link class :to="{ name: 'tasks' }">
         <button type="button" class="btn btn-grey">Отмена</button>
-        <button type="button" class="btn btn-green" @click="updateTask">
-          Готово
-        </button>
+        <button type="button" class="btn btn-green" @click="updateTask">Готово</button>
       </router-link>
     </div>
   </div>
@@ -47,6 +45,7 @@ export default {
           if (error.response.status == 401) {
             alert('Авторизуйтесь пожалуйста')
             localStorage.token = ''
+            localStorage.email = ''
             this.$router.push({ name: 'home' })
           } else {
             console.log('Произошла ошибка: ' + error.response.data)

@@ -11,11 +11,7 @@
 
       <select class="filter" v-model="selectedFilter" @change="changeFilter">
         <i class="filter-btn material-icons material-icons__color_green">arrow_drop_down</i>
-        <option v-for="filter in filters" :key="filter.id" :value="filter.id">
-          {{
-          filter.name
-          }}
-        </option>
+        <option v-for="filter in filters" :key="filter.id" :value="filter.id">{{ filter.name }}</option>
       </select>
     </div>
 
@@ -122,6 +118,7 @@ export default {
         if (error.response.status == 401) {
           alert('Авторизуйтесь пожалуйста')
           localStorage.token = ''
+          localStorage.email = ''
           this.$router.push({ name: 'home' })
         } else {
           console.log('Произошла ошибка: ' + error.response.data)

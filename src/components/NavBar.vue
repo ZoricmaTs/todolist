@@ -1,6 +1,6 @@
 <template>
   <div v-show="isShowNavBar" class="navbar">
-    <span class="navbar_text">{{ login }}</span>
+    <span class="navbar_text">{{ email }}</span>
     <button @click="exit" class="btn btn-white">Выйти</button>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
     return {
       isShowNavBar: localStorage.token !== '',
       token: localStorage.token,
-      login: localStorage.login,
+      email: localStorage.email,
       userId: localStorage.userId
     }
   },
@@ -21,8 +21,8 @@ export default {
       this.token = localStorage.token
       this.isShowNavBar = true
     }
-    if (localStorage.login) {
-      this.login = localStorage.login
+    if (localStorage.email) {
+      this.email = localStorage.email
     }
     if (localStorage.userId) {
       this.userId = localStorage.userId
