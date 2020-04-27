@@ -1,41 +1,43 @@
 <template>
-  <div class="authorization">
-    <h1 class="tasklist-heading">Регистрация</h1>
-    <input class="task-input" type="text" name="name" placeholder="Имя" v-model="name" required />
-    <input
-      class="task-input"
-      type="email"
-      name="email"
-      placeholder="Электронная почта"
-      v-model="email"
-      required
-    />
-    <input
-      class="task-input"
-      type="password"
-      name="password"
-      placeholder="Пароль"
-      v-model="password"
-      required
-    />
-    <input
-      class="task-input"
-      type="password"
-      name="password-confirmation"
-      placeholder="Повторите пароль"
-      v-model="password_confirmation"
-      required
-    />
-    <div>
-      <span>Есть аккаунт?</span>
-      <router-link to="/">Войти</router-link>
+  <form v-on:submit.prevent="register">
+    <div class="authorization">
+      <h1 class="tasklist-heading">Регистрация</h1>
+      <input class="task-input" type="text" name="name" placeholder="Имя" v-model="name" required />
+      <input
+        class="task-input"
+        type="email"
+        name="email"
+        placeholder="Электронная почта"
+        v-model="email"
+        required
+      />
+      <input
+        class="task-input"
+        type="password"
+        name="password"
+        placeholder="Пароль"
+        v-model="password"
+        required
+      />
+      <input
+        class="task-input"
+        type="password"
+        name="password-confirmation"
+        placeholder="Повторите пароль"
+        v-model="password_confirmation"
+        required
+      />
+      <div>
+        <span>Есть аккаунт?</span>
+        <router-link to="/">Войти</router-link>
+      </div>
+      <button
+        type="button"
+        class="btn btn-green btn-authorization"
+        @click="register"
+      >Зарегистрироваться</button>
     </div>
-    <button
-      type="button"
-      class="btn btn-green btn-authorization"
-      @click="register"
-    >Зарегистрироваться</button>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -45,7 +47,8 @@ export default {
   name: 'register',
   data() {
     return {
-      login: '',
+      name: '',
+      email: '',
       password: '',
       password_confirmation: ''
     }
@@ -84,7 +87,29 @@ export default {
         this.password_confirmation
       )
         .then(response => {
-          alert('Вы успешно зарегистрированы')
+          if (response.data.success == false) {
+            const errorList = response.data['0']
+            let message = ''
+
+            if (typeof errorList.email !== 'undefined') {
+              message += errorList.email[0] + '\n'
+            }
+            if (typeof errorList.password !== 'undefined') {
+              message += errorList.password[0] + '\n'
+            }
+            if (typeof errorList.password_confirmation !== 'undefined') {
+              message += errorList.password_confirmation[0] + '\n'
+            }
+            if (typeof errorList.name !== 'undefined') {
+              message += errorList.name[0] + '\n'
+            }
+            if (message !== '') {
+              alert(message)
+            }
+          } else {
+            alert('Вы успешно зарегистрированы')
+            this.$router.push({ name: 'home' })
+          }
         })
         .catch(error => {
           if (error.response.status == 401) {
