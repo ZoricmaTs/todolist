@@ -15,7 +15,7 @@
       </select>
     </div>
 
-    <TaskCard class="task" v-for="task in tasks" :key="task.id" :task="task"></TaskCard>
+    <TaskCard class="task" v-for="task in filteredTasks" :key="task.id" :task="task"></TaskCard>
   </div>
 </template>
 
@@ -30,6 +30,7 @@ export default {
   data() {
     return {
       tasks: [],
+      filteredTasks: [],
       selectedFilter: localStorage.active_filter,
       filters: [
         { id: 2, name: 'Невыполненные' },
@@ -64,25 +65,25 @@ export default {
     changeFilter() {
       console.log('changeFilter', this.selectedFilter)
 
-      if (this.selectedFilter == 0) {
-        ///все
-        localStorage.active_filter = this.selectedFilter
-        TaskService.getTasks()
-          .then(response => {
-            this.tasks = this.updateTaskList(response.data)
-          })
-          .catch(errors => {
-            console.log('ERROR: ' + errors.response)
-          })
-      } else {
-        localStorage.active_filter = this.selectedFilter
-        TaskService.getTasksByStatus(this.selectedFilter)
-          .then(response => {
-            this.tasks = this.updateTaskList(response.data)
-          })
-          .catch(error => {
-            console.log('There was an error:', error.response) // Logs out the error
-          })
+      switch (this.selectedFilter) {
+        case 0: {
+          //все
+          localStorage.active_filter = this.selectedFilter
+          this.filteredTasks = this.tasks
+          break
+        }
+        case 1: {
+          // выполненные
+          localStorage.active_filter = this.selectedFilter
+          this.filteredTasks = this.tasks.filter(task => task.status == 1)
+          break
+        }
+        case 2: {
+          // невыполненные
+          localStorage.active_filter = this.selectedFilter
+          this.filteredTasks = this.tasks.filter(task => task.status == 2)
+          break
+        }
       }
     }
   },
@@ -91,6 +92,27 @@ export default {
       .then(response => {
         console.log(response.data['0'])
         this.tasks = this.updateTaskList(response.data['0'])
+
+        switch (localStorage.active_filter) {
+          case '0': {
+            //все
+            this.selectedFilter = 0
+            this.filteredTasks = this.tasks
+            break
+          }
+          case '1': {
+            // выполненные
+            this.selectedFilter = 1
+            this.filteredTasks = this.tasks.filter(task => task.status == 1)
+            break
+          }
+          case '2': {
+            // невыполненные
+            this.selectedFilter = 2
+            this.filteredTasks = this.tasks.filter(task => task.status == 2)
+            break
+          }
+        }
       })
       .catch(errors => {
         console.log('ERROR: ' + errors.response)
