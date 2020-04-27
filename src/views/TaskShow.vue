@@ -60,8 +60,14 @@ export default {
         })
         console.log(response.data['0'][0].tasks)
       })
-      .catch(errors => {
-        console.log('ERROR: ' + errors.response)
+      .catch(error => {
+        if (error.response.status == 401) {
+          alert('Авторизуйтесь пожалуйста')
+          localStorage.token = ''
+          this.$router.push({ name: 'home' })
+        } else {
+          console.log('Произошла ошибка: ' + error.response.data)
+        }
       })
 
     /*TaskService.getSubTasks(this.id)

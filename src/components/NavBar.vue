@@ -34,12 +34,7 @@ export default {
   methods: {
     exit() {
       localStorage.token = ''
-      localStorage.login = ''
-      localStorage.userId = ''
-      this.token = ''
-      this.login = ''
-      this.userId = ''
-      this.isShowNavBar = false
+      this.$router.push({ name: 'home' })
       location.reload()
     }
   }

@@ -62,7 +62,13 @@ export default {
           // console.log(response.data)
         })
         .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
+          if (error.response.status == 401) {
+            alert('Авторизуйтесь пожалуйста')
+            localStorage.token = ''
+            this.$router.push({ name: 'home' })
+          } else {
+            console.log('Произошла ошибка: ' + error.response.data)
+          }
         })
     }
   },
@@ -84,12 +90,24 @@ export default {
           .then(response => {
             this.taskname = response.data['0'][0].name
           })
-          .catch(errors => {
-            console.log('ERROR: ' + errors.response)
+          .catch(error => {
+            if (error.response.status == 401) {
+              alert('Авторизуйтесь пожалуйста')
+              localStorage.token = ''
+              this.$router.push({ name: 'home' })
+            } else {
+              console.log('Произошла ошибка: ' + error.response.data)
+            }
           })
       })
-      .catch(errors => {
-        console.log('ERROR: ' + errors.response)
+      .catch(error => {
+        if (error.response.status == 401) {
+          alert('Авторизуйтесь пожалуйста')
+          localStorage.token = ''
+          this.$router.push({ name: 'home' })
+        } else {
+          console.log('Произошла ошибка: ' + error.response.data)
+        }
       })
   }
 }

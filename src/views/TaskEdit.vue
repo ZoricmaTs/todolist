@@ -34,6 +34,7 @@ export default {
     updateTask() {
       TaskService.updateTask(this.task)
         .then(response => {
+          alert('Задача успешно добавнена')
           if (response.data['success'] == false) {
             alert('Произошла ошибка')
           }

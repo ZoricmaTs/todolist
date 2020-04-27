@@ -32,7 +32,13 @@ export default {
           console.log('задача', response.data) // For now, logs out the response
         })
         .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
+          if (error.response.status == 401) {
+            alert('Авторизуйтесь пожалуйста')
+            localStorage.token = ''
+            this.$router.push({ name: 'home' })
+          } else {
+            console.log('Произошла ошибка: ' + error.response.data)
+          }
         })
     }
   },
@@ -43,8 +49,14 @@ export default {
         this.taskname = response.data['0'][0].name
         // this.task = response.data
       })
-      .catch(errors => {
-        console.log('ERROR: ' + errors.response)
+      .catch(error => {
+        if (error.response.status == 401) {
+          alert('Авторизуйтесь пожалуйста')
+          localStorage.token = ''
+          this.$router.push({ name: 'home' })
+        } else {
+          console.log('Произошла ошибка: ' + error.response.data)
+        }
       })
   }
 }

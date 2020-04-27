@@ -21,11 +21,7 @@
     ></textarea>
     <span>Дата создания подзадачи: {{ subtask.created_date }}</span>
     <label class="check option-check">
-      <input
-        class="check__input"
-        type="checkbox"
-        v-model="subtask.importance"
-      />
+      <input class="check__input" type="checkbox" v-model="subtask.importance" />
       <span class="check__box"></span>
       <div class="check__text-block">
         <span class="check__text">Срочность</span>
@@ -35,9 +31,7 @@
       <router-link :to="{ name: 'task-show', params: { id: task_id } }">
         <button type="button" class="btn btn-grey">Отмена</button>
       </router-link>
-      <button type="button" class="btn btn-green" @click="addSubTask">
-        Готово
-      </button>
+      <button type="button" class="btn btn-green" @click="addSubTask">Готово</button>
     </div>
   </div>
 </template>
@@ -67,7 +61,13 @@ export default {
           this.$router.push({ name: 'task-show', params: { id: this.task_id } })
         })
         .catch(error => {
-          console.log('There was an error:', error.response) // Logs out the error
+          if (error.response.status == 401) {
+            alert('Авторизуйтесь пожалуйста')
+            localStorage.token = ''
+            this.$router.push({ name: 'home' })
+          } else {
+            console.log('Произошла ошибка: ' + error.response.data)
+          }
         })
     },
 
