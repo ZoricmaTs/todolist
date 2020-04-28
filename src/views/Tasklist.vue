@@ -84,6 +84,12 @@ export default {
           this.filteredTasks = this.tasks.filter(task => task.status == 2)
           break
         }
+        default: {
+          // невыполненные
+          localStorage.active_filter = 2
+          this.filteredTasks = this.tasks.filter(task => task.status == 2)
+          break
+        }
       }
     }
   },
@@ -108,6 +114,11 @@ export default {
           }
           case '2': {
             // невыполненные
+            this.selectedFilter = 2
+            this.filteredTasks = this.tasks.filter(task => task.status == 2)
+            break
+          }
+          default: {
             this.selectedFilter = 2
             this.filteredTasks = this.tasks.filter(task => task.status == 2)
             break
