@@ -21,29 +21,23 @@ export default {
   data() {
     return {
       isShowTodolist: localStorage.token !== '',
-      token: '',
-      login: ''
+      token: ''
     }
   },
 
   mounted() {
-    if (localStorage.token) {
+    if (localStorage.token != '') {
       this.token = localStorage.token
-    }
-    if (localStorage.login) {
-      this.login = localStorage.login
     }
   },
   methods: {
     changeTodoListVisible() {
       this.isShowTodolist = true
-      if (localStorage.token) {
+      if (localStorage.token != '') {
         this.token = localStorage.token
       }
-      if (localStorage.login) {
-        this.login = localStorage.login
-      }
       location.reload()
+      //this.$router.push({ name: 'home' })
     }
   }
 }

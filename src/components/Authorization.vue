@@ -48,6 +48,7 @@ export default {
             alert(response.data.message)
           } else {
             localStorage.token = response.data.api_token
+
             localStorage.email = this.email
             this.$parent.changeTodoListVisible()
           }

@@ -38,8 +38,18 @@ export default {
     bodyFormData.set('password_confirmation', password_confirmation)
     return apiClientPost.post(`/user`, bodyFormData)
   },
-  getTasks() {
-    return apiClient.get(`/list`) //+
+  getTasks(token) {
+    const apiClient2 = axios.create({
+      baseURL: 'http://www.host1813334.hostland.pro/public/api',
+      withCredentials: false,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
+    })
+
+    return apiClient2.get(`/list`) //+
   },
   getTasksByStatus(status) {
     return apiClient.get('/tasks/?status=' + status) //для фильтра
